@@ -66,7 +66,7 @@ multiDigit.addEventListener('change', multiDigitGen);
 function multiDigitGen(e)
 {
     digitMin = 10;
-    digitMax = 1000;
+    digitMax = 1000000;
     regenerate()
 }
 
