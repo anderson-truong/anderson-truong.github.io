@@ -6,12 +6,64 @@ let code = "";
 let digitMin = 1;
 let digitMax = 9;
 
+let multiBatchState = false;
+
+const multiBatch = document.querySelector('#multiBatch');
+multiBatch.addEventListener('change', multiBatchEnable);
+function multiBatchEnable(e)
+{
+    if (multiBatch.checked)
+    {
+        multiBatchState = true;
+        regenerate();
+    }
+    else
+    {
+        multiBatchState = false;
+        regenerate();
+    }
+}
+
+function multiBatchString(min=digitMin, max=digitMax)
+{
+    if (multiBatchState)
+    {
+        let order = randomNum(1, 2);
+        var string = "";
+        if (order == 1)
+        {
+            for (let i = 0; i < randomNum(1, 5); i++)
+            {
+                let a = randomNum(min, max);
+                let b = randomNum(min, a);
+                let c = a - b;
+                string += `Q${a}p${b}d${c}`;
+            }
+        }
+        else if (order == 2)
+        {
+            for (let i = 0; i < randomNum(1, 5); i++)
+            {
+                let a = randomNum(min, max);
+                let b = randomNum(min, a);
+                let c = a - b;
+                string += `Q${a}d${b}p${c}`;
+            }
+        }
+        return string;
+    }
+    else
+    {
+        return "";
+    }
+}
+
 const multiDigit = document.querySelector('#multiDigit');
 multiDigit.addEventListener('change', multiDigitGen);
 function multiDigitGen(e)
 {
     digitMin = 10;
-    digitMax = 100000000;
+    digitMax = 1000;
     regenerate()
 }
 
@@ -74,18 +126,18 @@ function validTestCheckGenerate(e)
         let batches = "";
         // No Zeros
         validnums();
-        batches += `"Q${q}p${p}d${d}", `;
-        batches += `"Q${q}d${d}p${p}", `;
+        batches += `"${multiBatchString()}Q${q}p${p}d${d}${multiBatchString()}", `;
+        batches += `"${multiBatchString()}Q${q}d${d}p${p}${multiBatchString()}", `;
 
         // With Zeros
-        q = Math.floor(Math.random() * 9) + 1;
-        batches += `"Q${q}p${0}d${q}", `;
-        q = Math.floor(Math.random() * 9) + 1;
-        batches += `"Q${q}p${q}d${0}", `;
-        q = Math.floor(Math.random() * 9) + 1;
-        batches += `"Q${q}d${0}p${q}", `;
-        q = Math.floor(Math.random() * 9) + 1;
-        batches += `"Q${q}d${q}p${0}"`;
+        q = randomNum();
+        batches += `"${multiBatchString()}Q${q}p${0}d${q}${multiBatchString()}", `;
+        q = randomNum();
+        batches += `"${multiBatchString()}Q${q}p${q}d${0}${multiBatchString()}", `;
+        q = randomNum();
+        batches += `"${multiBatchString()}Q${q}d${0}p${q}${multiBatchString()}", `;
+        q = randomNum();
+        batches += `"${multiBatchString()}Q${q}d${q}p${0}${multiBatchString()}"`;
 
         validTestCheckCode = forLoopValidation("validTestStrings", "6", batches, "false", "isValidQC: Valid Test Case returned False: ");
     }
@@ -126,7 +178,7 @@ function wrongCaseCheckGenerate(e)
                     {
                         if (!(letter1 == 'Q' && letter2 == 'p' && letter21 == 'd'))
                         {
-                            batches += `"${letter1}${q}${letter2}${p}${letter21}${d}", `;
+                            batches += `"${multiBatchString()}${letter1}${q}${letter2}${p}${letter21}${d}${multiBatchString()}", `;
                         }
                     }
                 }
@@ -136,7 +188,7 @@ function wrongCaseCheckGenerate(e)
                     {
                         if (!(letter1 == 'Q' && letter2 == 'd' && letter22 == 'p'))
                         {
-                            batches += `"${letter1}${q}${letter2}${p}${letter22}${d}", `;
+                            batches += `"${multiBatchString()}${letter1}${q}${letter2}${p}${letter22}${d}${multiBatchString()}", `;
                         }
                     }
                 }
@@ -179,8 +231,8 @@ function extraCharCheckGenerate(e)
             for (let i = 0; i < batch.length; i++)
             {   
                 batchCount += 2;
-                batches += `"${batch.insert(i, randomChar(1))}", `;
-                batches += `"${batch.insert(i, randomChar(3))}", `;
+                batches += `"${multiBatchString()}${batch.insert(i, randomChar(1))}${multiBatchString()}", `;
+                batches += `"${multiBatchString()}${batch.insert(i, randomChar(3))}${multiBatchString()}", `;
             }
         }
         batches = batches.slice(0, -2);
@@ -232,9 +284,20 @@ function wrongOrderCheckGenerate(e)
         let batchCount = 0;
         for (const perm of perms)
         {
-            if (perm.join('') != `Q${q}p${p}d${d}` && perm.join('') != `Q${q}d${d}p${p}` && perm.join('') != `Q${q}p${d}d${p}` && perm.join('') != `Q${q}d${p}p${d}`)
+            let permstring = perm.join('');
+            if (permstring != `Q${q}p${p}d${d}` && permstring != `Q${q}d${d}p${p}` && permstring != `Q${q}p${d}d${p}` && permstring != `Q${q}d${p}p${d}`)
             {
-                batches += `"${perm.join('')}", `;
+                let prefix = multiBatchString(1, 9);
+                let suffix = multiBatchString(1, 9);
+                if (permstring.startsWith(q) || permstring.startsWith(p) || permstring.startsWith(d))
+                {
+                    prefix = "";
+                }
+                if (permstring.endsWith(q) || permstring.endsWith(p) || permstring.endsWith(d))
+                {
+                    suffix = "";
+                }
+                batches += `"${prefix}${permstring}${suffix}", `;
                 batchCount++;
             }
         }
@@ -257,17 +320,19 @@ function repeatCheckGenerate(e)
         let letters = ['Q', 'p', 'd'];
         let batch = `Q${q}p${p}d${d}`;
         let batchArray = [];
+        let batchCount = 0;
         for (const letter of letters)
         {
             for (let i = 1; i < batch.length + 1; i++)
             {
-                batchArray.push(`"${batch.insert(i, letter)}", `)
+                batchArray.push(`"${multiBatchString()}${batch.insert(i, letter)}${multiBatchString()}", `)
+                batchCount++;
             }
         }
         batchArray = [...new Set(batchArray)];
         let batches = batchArray.join('');
         batches = batches.slice(0, -2);
-        repeatCheckCode = forLoopValidation("repeatCheck", "16", batches, "true", "isValidQC: Repeat Letter Test returned True: ");
+        repeatCheckCode = forLoopValidation("repeatCheck", batchCount, batches, "true", "isValidQC: Repeat Letter Test returned True: ");
     }
     updateCode();
 }
@@ -282,7 +347,7 @@ function qZeroCheckGenerate(e)
     if (qZeroCheck.checked)
     {
         validnums();
-        let batches = `"Q0p${p}d${d}", `;
+        let batches = `"${multiBatchString()}${multiBatchString()}Q0p${p}d${d}${multiBatchString()}", `;
         validnums();
         batches += `"Q0d${d}p${p}"`;
         qZeroCheckCode = forLoopValidation("zeroAfterQStrings", "2", batches, "true", "isValidQC: Zero after Q Test returned True: ");
@@ -307,8 +372,8 @@ function noNumCheckGenerate(e)
             let nums2 = [q, d, p];
             nums1[i] = '';
             nums2[i] = '';
-            batches += `"Q${nums1[0]}p${nums1[1]}d${nums1[2]}", `;
-            batches += `"Q${nums2[0]}d${nums2[1]}p${nums2[2]}", `;
+            batches += `"${multiBatchString()}Q${nums1[0]}p${nums1[1]}d${nums1[2]}${multiBatchString()}", `;
+            batches += `"${multiBatchString()}Q${nums2[0]}d${nums2[1]}p${nums2[2]}${multiBatchString()}", `;
         }
         let perms = permute([0, 1, 2]);
         let perms2 = perms;
@@ -317,14 +382,14 @@ function noNumCheckGenerate(e)
             perms2[i] = [perms2[i][0], perms2[i][1]];
         }
 
-        batches += `"Qpd${d}", `;
-        batches += `"Qd${d}p", `;
-        batches += `"Qp${p}d", `;
-        batches += `"Qdp${p}", `;
-        batches += `"Q${d}pd", `;
-        batches += `"Q${d}dp", `;
-        batches += `"Qpd", `;
-        batches += `"Qdp", `;
+        batches += `"${multiBatchString()}Qpd${d}${multiBatchString()}", `;
+        batches += `"${multiBatchString()}Qd${d}p${multiBatchString()}", `;
+        batches += `"${multiBatchString()}Qp${p}d${multiBatchString()}", `;
+        batches += `"${multiBatchString()}Qdp${p}${multiBatchString()}", `;
+        batches += `"${multiBatchString()}Q${d}pd${multiBatchString()}", `;
+        batches += `"${multiBatchString()}Q${d}dp${multiBatchString()}", `;
+        batches += `"${multiBatchString()}Qpd${multiBatchString()}", `;
+        batches += `"${multiBatchString()}Qdp${multiBatchString()}", `;
 
         batches = batches.slice(0, -2);
         noNumCheckCode = forLoopValidation("noNumAfterLetterStrings", "14", batches, "true", "isValidQC: No Number After Letter Test returned True: ");
@@ -351,7 +416,7 @@ function wrongSumCheckGenerate(e)
             p = randomNum();
             d = randomNum();
         }
-        batches += `"Q${q}p${p}d${d}", `
+        batches += `"${multiBatchString()}Q${q}p${p}d${d}${multiBatchString()}", `
         q = randomNum();
         p = randomNum();
         d = randomNum();
@@ -361,9 +426,9 @@ function wrongSumCheckGenerate(e)
             p = randomNum();
             d = randomNum();
         }
-        batches += `"Q${q}p${p}d${d}", `
+        batches += `"${multiBatchString()}Q${q}p${p}d${d}${multiBatchString()}", `
         batches = batches.slice(0, -2);
-        noNumCheckCode = forLoopValidation("wrongSumStrings", "2", batches, "true", "isValidQC: No Number After Letter Test returned True: ");
+        wrongSumCheckCode = forLoopValidation("wrongSumStrings", "2", batches, "true", "isValidQC: Wrong Sum Test returned True: ");
     }
     updateCode();
 }
@@ -379,26 +444,26 @@ function leadingZerosCheckGenerate(e)
     {
         let batches = "";
         validnums();
-        let batch1 = `"Q${q}p${p}d${d}", `
-        let batch2 = `"Q${q}d${d}p${p}", `
+        let batch1 = `Q${q}p${p}d${d}`
+        let batch2 = `Q${q}d${d}p${p}`
         let batch1_p = batch1.indexOf('p');
         let batch1_d = batch1.indexOf('d');
         let batch2_p = batch2.indexOf('p');
         let batch2_d = batch2.indexOf('d');
         
-        batches += batch1.insert(batch1_p + 1, '0'.repeat(randomNum(min = 1, max = 9)));
-        batches += batch2.insert(batch2_p + 1, '0'.repeat(randomNum(min = 1, max = 9)));
+        batches += '"' + multiBatchString() + batch1.insert(batch1_p + 1, '0'.repeat(randomNum(min = 1, max = 9))) + multiBatchString() + '" ,';
+        batches += '"' + multiBatchString() + batch2.insert(batch2_p + 1, '0'.repeat(randomNum(min = 1, max = 9))) + multiBatchString() + '" ,';
 
-        batches += batch1.insert(batch1_d + 1, '0'.repeat(randomNum(min = 1, max = 9)));
-        batches += batch2.insert(batch2_d + 1, '0'.repeat(randomNum(min = 1, max = 9)));
+        batches += '"' + multiBatchString() + batch1.insert(batch1_d + 1, '0'.repeat(randomNum(min = 1, max = 9))) + multiBatchString() + '" ,';
+        batches += '"' + multiBatchString() + batch2.insert(batch2_d + 1, '0'.repeat(randomNum(min = 1, max = 9))) + multiBatchString() + '" ,';
 
         let doubleBatch1 = batch1.insert(batch1.indexOf('p') + 1, '0'.repeat(randomNum(min = 1, max = 9)));
         doubleBatch1 = doubleBatch1.insert(doubleBatch1.indexOf('d') + 1, '0'.repeat(randomNum(min = 1, max = 9)));
-        batches += doubleBatch1;
+        batches += '"' + multiBatchString() + doubleBatch1 + multiBatchString() + '" ,';
 
         let doubleBatch2 = batch2.insert(batch2.indexOf('p') + 1, '0'.repeat(randomNum(min = 1, max = 9)));
         doubleBatch2 = doubleBatch2.insert(doubleBatch2.indexOf('d') + 1, '0'.repeat(randomNum(min = 1, max = 9)));
-        batches += doubleBatch2;
+        batches += '"' + multiBatchString() + doubleBatch2 + multiBatchString() + '" ,';
 
         batches = batches.slice(0, -2);
         leadingZerosCheckCode = forLoopValidation("leadingZerosStrings", "6", batches, "true", "isValidQC: Leading Zeros Test returned True: ");
