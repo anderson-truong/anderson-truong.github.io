@@ -262,7 +262,7 @@ function wrongCaseCheckGenerate(e)
                                 wrongCaseBatches += (prefix.split("Q").length - 1);
                                 wrongCaseBatches += (suffix.split("Q").length - 1);
                             }
-                            batches += `"${prefix}}${letter1}${q}${letter2}${p}${letter21}${d}${suffix}", `;
+                            batches += `"${prefix}${letter1}${q}${letter2}${p}${letter21}${d}${suffix}", `;
                         }
                     }
                 }
