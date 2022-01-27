@@ -302,7 +302,12 @@ String.prototype.insert = function(index, string) {
 function randomChar(count)
 {
     const alphanum = 'ABCEFGHIJKLMNORSTUVWXYZabcefghijklmnorstuvwxyz~`!@#$%^&*()_+-={}[]:;<>?,./|';
-    return alphanum.charAt(Math.floor(Math.random() * alphanum.length));
+    let randomChar = "";
+    for (let i = 0; i < count; i++)
+    {
+        randomChar += alphanum.charAt(Math.floor(Math.random() * alphanum.length))
+    }
+    return randomChar;
 }
 
 let extraCharBatches = 0;
@@ -342,7 +347,7 @@ function extraCharCheckGenerate(e)
                     extraCharBatches += (prefix.split("Q").length - 1);
                     extraCharBatches += (suffix.split("Q").length - 1);
                 }
-                batches += `"${prefix}${batch.insert(i, randomChar(3))}${suffix}", `;
+                batches += `"${prefix}${batch.insert(i, randomChar(randomNum(2, 10)))}${suffix}", `;
             }
         }
         extraCharBatches += batchCount;
