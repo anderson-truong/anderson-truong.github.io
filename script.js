@@ -84,7 +84,7 @@ validnums();
 
 function forLoopValidation(array, arraysize, batches, bool, message)
 {
-    return `    std::string ${array}[${arraysize}] = { ${batches} };\n    for (std::string test : ${array})\n    {\n        if (isValidQC(test) == ${bool})\n        {\n            std::cout << \"${message}\" << test << '\\n';\n        }\n    }\n`
+    return `    std::string* ${array} = new std::string[${arraysize}]{ ${batches} };\n    for (int i = 0; i < ${arraysize}; i++)\n    {\n        if (isValidQC(${array}[i]) == ${bool})\n        {\n            std::cout << \"${message}\" << ${array}[i] << '\\n';\n        }\n    }\n`
 
 }
 
