@@ -392,6 +392,7 @@ function wrongOrderCheckGenerate(e)
     wrongOrderBatches = 0;
     wrongOrderStrings = 0;
     wrongOrderCheckCode = "";
+    var batchCount = 0;
     if (wrongOrderCheck.checked)
     {
         validnums();
@@ -402,7 +403,6 @@ function wrongOrderCheckGenerate(e)
         let batches = "";
         let set = ['Q', q, 'p', p, 'd', d];
         let perms = permute(set);
-        let batchCount = 0;
         for (const perm of perms)
         {
             let permstring = perm.join('');
@@ -446,13 +446,13 @@ function repeatCheckGenerate(e)
     repeatCheckBatches = 0;
     repeatCheckStrings = 0;
     repeatCheckCode = "";
+    var batchCount = 0;
     if (repeatCheck.checked)
     {
         validnums();
         let letters = ['Q', 'p', 'd'];
         let batch = `Q${q}p${p}d${d}`;
         let batchArray = [];
-        let batchCount = 0;
         for (const letter of letters)
         {
             for (let i = 1; i < batch.length + 1; i++)
@@ -464,12 +464,12 @@ function repeatCheckGenerate(e)
                     repeatCheckBatches += (prefix.split("Q").length - 1);
                     repeatCheckBatches += (suffix.split("Q").length - 1);
                 }
-                batchArray.push(`"${prefix}${batch.insert(i, letter)}${suffix}", `)
-                batchCount++;
+                batchArray.push(`"${prefix}${batch.insert(i, letter)}${suffix}", `);
             }
         }
         repeatCheckBatches += batchCount;
         batchArray = [...new Set(batchArray)];
+        batchCount = batchArray.length;
         let batches = batchArray.join('');
         batches = batches.slice(0, -2);
         repeatCheckStrings += batchCount;
