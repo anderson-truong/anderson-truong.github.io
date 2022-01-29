@@ -675,9 +675,12 @@ function wrongSumCheckGenerate(e)
             wrongSumCheckBatches += (suffix.split("Q").length - 1);
         }
         batches += `"${multiBatchString()}Q${q}p${p}d${d}${multiBatchString()}", `
-        batches = batches.slice(0, -2);
-        wrongSumCheckStrings += 2;
-        wrongSumCheckCode = forLoopValidation("wrongSumStrings", "2", batches, "true", "isValidQC: Wrong Sum Test returned True: ");
+
+        let q1 = randomNum();
+        let q2 = randomNum();
+        batches += `"Q${q1}p${q2}d0", "Q${q2}p0d${q1}"`
+        wrongSumCheckStrings += 4;
+        wrongSumCheckCode = forLoopValidation("wrongSumStrings", "4", batches, "true", "isValidQC: Wrong Sum Test returned True: ");
     }
     updateCode();
 }
