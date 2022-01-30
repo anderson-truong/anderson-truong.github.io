@@ -9,6 +9,23 @@ let string_count = 0;
 let digitMin = 1;
 let digitMax = 9;
 
+let isValidQCState = true;
+
+const isValidQC = document.querySelector('#isValidQC');
+isValidQC.addEventListener('change', isValidQCEnable);
+function isValidQCEnable(e)
+{
+    if (isValidQC.checked)
+    {
+        isValidQCState = true;
+    }
+    else
+    {
+        isValidQCState = false;
+    }
+    regenerate();
+}
+
 let multiBatchState = false;
 
 const multiBatch = document.querySelector('#multiBatch');
@@ -18,13 +35,12 @@ function multiBatchEnable(e)
     if (multiBatch.checked)
     {
         multiBatchState = true;
-        regenerate();
     }
     else
     {
         multiBatchState = false;
-        regenerate();
     }
+    regenerate();
 }
 
 function multiBatchString(min=digitMin, max=digitMax)
@@ -82,10 +98,14 @@ function singleDigitGen(e)
 var q, p, d;
 validnums();
 
-function forLoopValidation(array, arraysize, batches, bool, message)
+function dynamicString(array, arraysize, batches)
 {
-    return `    std::string* ${array} = new std::string[${arraysize}]{ ${batches} };\n    for (int i = 0; i < ${arraysize}; i++)\n    {\n        if (isValidQC(${array}[i]) == ${bool})\n        {\n            std::cout << \"${message}\" << ${array}[i] << '\\n';\n        }\n    }\n    delete[] ${array};\n`
+    return `    std::string* ${array} = new std::string[${arraysize}]{ ${batches} };\n`;
+}
 
+function forLoopValidation(array, arraysize, bool, message)
+{
+    return `    for (int i = 0; i < ${arraysize}; i++)\n    {\n        if (isValidQC(${array}[i]) == ${bool})\n        {\n            std::cout << \"${message}\" << ${array}[i] << '\\n';\n        }\n    }\n    delete[] ${array};\n`
 }
 
 function randomNum(min = digitMin, max = digitMax)
@@ -216,7 +236,11 @@ function validTestCheckGenerate(e)
         q = randomNum();
         batches += `"${prefix}Q${q}d${q}p${0}${suffix}"`;
         validStrings = 6;
-        validTestCheckCode = forLoopValidation("validTestStrings", "6", batches, "false", "isValidQC: Valid Test Case returned False: ");
+        if (isValidQCState)
+        {
+            validTestCheckCode += dynamicString("validTestStrings", "6", batches);
+            validTestCheckCode += forLoopValidation("validTestStrings", "6", "false", "isValidQC: Valid Test Case returned False: ");
+        }
     }
     updateCode();
 }
@@ -287,7 +311,8 @@ function wrongCaseCheckGenerate(e)
         }
         batches = batches.slice(0, -2);
         wrongCaseStrings += 14;
-        wrongCaseCheckCode += forLoopValidation("wrongCaseStrings", "14", batches, "true", "isValidQC: Wrong Case Test returned True: ");
+        wrongCaseCheckCode += dynamicString("wrongCaseStrings", "14", batches);
+        wrongCaseCheckCode += forLoopValidation("wrongCaseStrings", "14", "true", "isValidQC: Wrong Case Test returned True: ");
     }
     updateCode();
 }
@@ -353,7 +378,8 @@ function extraCharCheckGenerate(e)
         extraCharBatches += batchCount;
         batches = batches.slice(0, -2);
         extraCharStrings += batchCount;
-        extraCharCheckCode = forLoopValidation("extraCharsString", `${batchCount}`, batches, "true", "isValidQC: Extra Char Test returned True: ");
+        extraCharCheckCode += dynamicString("extraCharsString", `${batchCount}`, batches);
+        extraCharCheckCode += forLoopValidation("extraCharsString", `${batchCount}`, "true", "isValidQC: Extra Char Test returned True: ");
     }
     updateCode();
 }
@@ -430,7 +456,8 @@ function wrongOrderCheckGenerate(e)
         wrongOrderBatches += batchCount;
         batches = batches.slice(0, -2);
         wrongOrderStrings += batchCount;
-        wrongOrderCheckCode = forLoopValidation("wrongOrderStrings", `${batchCount}`, batches, "true", "isValidQC: Wrong Order Test returned True: ");
+        wrongOrderCheckCode += dynamicString("wrongOrderStrings", `${batchCount}`, batches);
+        wrongOrderCheckCode += forLoopValidation("wrongOrderStrings", `${batchCount}`, "true", "isValidQC: Wrong Order Test returned True: ");
     }
     updateCode();
 }
@@ -473,7 +500,8 @@ function repeatCheckGenerate(e)
         let batches = batchArray.join('');
         batches = batches.slice(0, -2);
         repeatCheckStrings += batchCount;
-        repeatCheckCode = forLoopValidation("repeatCheck", batchCount, batches, "true", "isValidQC: Repeat Letter Test returned True: ");
+        repeatCheckCode += dynamicString("repeatCheck", batchCount, batches);
+        repeatCheckCode += forLoopValidation("repeatCheck", batchCount, "true", "isValidQC: Repeat Letter Test returned True: ");
     }
     updateCode();
 }
@@ -504,7 +532,8 @@ function qZeroCheckGenerate(e)
         validnums();
         batches += `"Q0d${d}p${p}"`;
         qZeroCheckStrings += 2;
-        qZeroCheckCode = forLoopValidation("zeroAfterQStrings", "2", batches, "true", "isValidQC: Zero after Q Test returned True: ");
+        qZeroCheckCode += dynamicString("zeroAfterQStrings", "2", batches);
+        qZeroCheckCode += forLoopValidation("zeroAfterQStrings", "2", "true", "isValidQC: Zero after Q Test returned True: ");
     }
     updateCode();
 }
@@ -621,7 +650,8 @@ function noNumCheckGenerate(e)
 
         batches = batches.slice(0, -2);
         noNumCheckStrings += 14;
-        noNumCheckCode = forLoopValidation("noNumAfterLetterStrings", "14", batches, "true", "isValidQC: No Number After Letter Test returned True: ");
+        noNumCheckCode += dynamicString("noNumAfterLetterStrings", "14", batches);
+        noNumCheckCode += forLoopValidation("noNumAfterLetterStrings", "14", "true", "isValidQC: No Number After Letter Test returned True: ");
     }
     updateCode();
 }
@@ -679,8 +709,9 @@ function wrongSumCheckGenerate(e)
         let q1 = randomNum();
         let q2 = randomNum();
         batches += `"Q${q1}p${q2}d0", "Q${q2}p0d${q1}"`
-        wrongSumCheckStrings += 4;
-        wrongSumCheckCode = forLoopValidation("wrongSumStrings", "4", batches, "true", "isValidQC: Wrong Sum Test returned True: ");
+        wrongSumCheckStrings += 2;
+        wrongSumCheckCode += dynamicString("wrongSumStrings", "4", batches);
+        wrongSumCheckCode += forLoopValidation("wrongSumStrings", "4", "true", "isValidQC: Wrong Sum Test returned True: ");
     }
     updateCode();
 }
@@ -773,7 +804,8 @@ function leadingZerosCheckGenerate(e)
 
         batches = batches.slice(0, -2);
         leadingZerosCheckStrings += 6;
-        leadingZerosCheckCode = forLoopValidation("leadingZerosStrings", "6", batches, "true", "isValidQC: Leading Zeros Test returned True: ");
+        leadingZerosCheckCode += dynamicString("leadingZerosStrings", "6", batches);
+        leadingZerosCheckCode += forLoopValidation("leadingZerosStrings", "6", "true", "isValidQC: Leading Zeros Test returned True: ");
     }
     updateCode();
 }
