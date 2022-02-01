@@ -708,6 +708,11 @@ function wrongSumCheckGenerate(e)
 
         let q1 = randomNum();
         let q2 = randomNum();
+        while (q == p)
+        {
+            q1 = randomNum();
+            q2 = randomNum();
+        }
         batches += `"Q${q1}p${q2}d0", "Q${q2}p0d${q1}"`
         wrongSumCheckStrings += 2;
         wrongSumCheckCode += dynamicString("wrongSumStrings", "4", batches);
