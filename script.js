@@ -195,7 +195,7 @@ function functionCodeTest(array, arraysize, batches, validity, batch_sums="", q_
 
     if (isValidQCState)
     {
-        block += forLoopValidation(array, arraysize, `isValidQC(${array}[i]) == ${!validity}`, `"Wrong isValidQC return value for " << ${array}[i] << "Your output: ${!validity} - Real output: ${validity}"`);
+        block += forLoopValidation(array, arraysize, `isValidQC(${array}[i]) == ${!validity}`, `"Wrong isValidQC return value for " << ${array}[i] << " Your output: ${!validity} - Real output: ${validity}"`);
     }
 
     for (const i in stateName)
