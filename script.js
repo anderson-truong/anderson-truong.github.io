@@ -522,7 +522,7 @@ function extraCharCheckGenerate(e)
         extraCharBatches += batchCount;
         batches = batches.slice(0, -2);
         extraCharStrings += batchCount;
-        extraCharCheckCode = functionCodeTest("extraCharsString", `${batchCount}`, batches, false);
+        extraCharCheckCode = functionCodeTest("extraCharsStrings", `${batchCount}`, batches, false);
     }
     updateCode();
 }
