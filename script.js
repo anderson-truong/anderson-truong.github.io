@@ -636,11 +636,11 @@ function repeatCheckGenerate(e)
                 batchArray.push(`"${prefix}${batch.insert(i, letter)}${suffix}", `);
             }
         }
-        repeatCheckBatches += batchCount;
         batchArray = [...new Set(batchArray)];
         batchCount = batchArray.length;
         let batches = batchArray.join('');
         batches = batches.slice(0, -2);
+        repeatCheckBatches += batchCount;
         repeatCheckStrings += batchCount;
         repeatCheckCode = functionCodeTest("repeatCheck", batchCount, batches, false);
     }
