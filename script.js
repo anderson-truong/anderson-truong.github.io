@@ -195,7 +195,7 @@ function functionCodeTest(array, arraysize, batches, validity, batch_sums="", q_
 
     if (isValidQCState)
     {
-        block += forLoopValidation(array, arraysize, `isValidQC(${array}[i]) == ${!validity}`, `"Wrong isValidQC return value for " << ${array}[i] << " Your output: ${!validity} - Real output: ${validity}"`);
+        block += forLoopValidation(array, arraysize, `isValidQC(${array}[i]) == ${!validity}`, `"Wrong isValidQC return value for ${array}: " << ${array}[i] << " Your output: ${!validity} - Real output: ${validity}"`);
     }
 
     for (const i in stateName)
@@ -204,11 +204,11 @@ function functionCodeTest(array, arraysize, batches, validity, batch_sums="", q_
         {
             if (validity)
             {
-                block += forLoopValidation(array, arraysize, `${stateName[i]}(${array}[i]) != ${array}_${stateName[i]}[i]`, `"Wrong ${stateName[i]} return value! Your output: " << passQC(validTestStrings[i]) << " - Real Value: " << ${array}_${stateName[i]}[i]`);
+                block += forLoopValidation(array, arraysize, `${stateName[i]}(${array}[i]) != ${array}_${stateName[i]}[i]`, `"Wrong ${stateName[i]} return value for ${array}: " << ${array}[i] << " Your output: " << ${stateName}(validTestStrings[i]) << " - Real Value: " << ${array}_${stateName[i]}[i]`);
             }
             else
             {
-                block += forLoopValidation(array, arraysize, `${stateName[i]}(${array}[i]) != -1`, `"Wrong ${stateName[i]} return value for " << ${array}[i] << " Real Value: -1"`);
+                block += forLoopValidation(array, arraysize, `${stateName[i]}(${array}[i]) != -1`, `"Wrong ${stateName[i]} return value for ${array}: " << ${array}[i] << " Real Value: -1"`);
             }
         }
     }
