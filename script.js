@@ -208,7 +208,7 @@ function functionCodeTest(array, arraysize, batches, validity, batch_sums="", q_
             }
             else
             {
-                block += forLoopValidation(array, arraysize, `${stateName[i]}(${array}[i]) != -1`, `"Wrong ${stateName[i]} return value for ${array}: " << ${array}[i] << " Your output: " << ${stateName}(${array}[i]) << " Real Value: -1"`);
+                block += forLoopValidation(array, arraysize, `${stateName[i]}(${array}[i]) != -1`, `"Wrong ${stateName[i]} return value for ${array}: " << ${array}[i] << " Your output: " << ${stateName[i]}(${array}[i]) << " Real Value: -1"`);
             }
         }
     }
