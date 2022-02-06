@@ -468,9 +468,13 @@ String.prototype.insert = function(index, string) {
 }
 
 // Random Char
-function randomChar(count)
+function randomChar(count, valid=false)
 {
-    const alphanum = 'ABCEFGHIJKLMNORSTUVWXYZabcefghijklmnorstuvwxyz~`!@#$%^&*()_+-={}[]:;<>?,./|';
+    var alphanum = 'ABCEFGHIJKLMNORSTUVWXYZabcefghijklmnorstuvwxyz~`!@#$%^&*()_+-={}[]:;<>?,./|';
+    if (valid)
+    {
+        alphanum = 'Qpd';
+    }
     let randomChar = "";
     for (let i = 0; i < count; i++)
     {
@@ -494,13 +498,17 @@ function extraCharCheckGenerate(e)
     {
         validnums();
         let batchprototypes = [`Q${q}p${p}d${d}`, `Q${q}d${d}p${p}`];
-        let batchCount = 0;
+        let batchCount = 4;
         var batches = "";
+        batches += `"", `;
+        batches += `" ", `;
+        batches += `"  ", `;
+        batches += `"oh hi there, im the best test case here", `;
         for (const batch of batchprototypes)
         {
             for (let i = 0; i < batch.length; i++)
             {   
-                batchCount += 2;
+                batchCount += 5;
                 let prefix = multiBatchString();
                 let suffix = multiBatchString();
                 if (multiBatchState)
@@ -508,7 +516,7 @@ function extraCharCheckGenerate(e)
                     extraCharBatches += (prefix.split("Q").length - 1);
                     extraCharBatches += (suffix.split("Q").length - 1);
                 }
-                batches += `"${prefix}${batch.insert(i, randomChar(1))}${suffix}", `;
+                batches += `"${prefix}${batch.insert(i, randomChar(randomNum(2, 10)))}${suffix}", `;
                 prefix = multiBatchString();
                 suffix = multiBatchString();
                 if (multiBatchState)
@@ -517,6 +525,30 @@ function extraCharCheckGenerate(e)
                     extraCharBatches += (suffix.split("Q").length - 1);
                 }
                 batches += `"${prefix}${batch.insert(i, randomChar(randomNum(2, 10)))}${suffix}", `;
+                prefix = multiBatchString();
+                suffix = multiBatchString();
+                if (multiBatchState)
+                {
+                    extraCharBatches += (prefix.split("Q").length - 1);
+                    extraCharBatches += (suffix.split("Q").length - 1);
+                }
+                batches += `"${prefix}${batch.insert(i, "Q")}${suffix}", `;
+                prefix = multiBatchString();
+                suffix = multiBatchString();
+                if (multiBatchState)
+                {
+                    extraCharBatches += (prefix.split("Q").length - 1);
+                    extraCharBatches += (suffix.split("Q").length - 1);
+                }
+                batches += `"${prefix}${batch.insert(i, "p")}${suffix}", `;
+                prefix = multiBatchString();
+                suffix = multiBatchString();
+                if (multiBatchState)
+                {
+                    extraCharBatches += (prefix.split("Q").length - 1);
+                    extraCharBatches += (suffix.split("Q").length - 1);
+                }
+                batches += `"${prefix}${batch.insert(i, "d")}${suffix}", `;
             }
         }
         extraCharBatches += batchCount;
@@ -596,6 +628,17 @@ function wrongOrderCheckGenerate(e)
                 batchCount++;
             }
         }
+        let prefix = multiBatchString();
+        let suffix = multiBatchString();
+        if (multiBatchState)
+        {
+            wrongOrderBatches += (prefix.split("Q").length - 1);
+            wrongOrderBatches += (suffix.split("Q").length - 1);
+        }
+        batches += `"0${prefix}Q${q}p${p}d${d}${suffix}", `
+        batches += `"0${prefix}Q${q}d${d}p${p}${suffix}", `
+        batchCount += 2;
+
         wrongOrderBatches += batchCount;
         batches = batches.slice(0, -2);
         wrongOrderStrings += batchCount;
