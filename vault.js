@@ -53,9 +53,6 @@ function b(m, l, p, s)
     return a(m-1, l, p, s) * p;
 }
 
-console.log(m, l, p, s);
-console.log (a(m, l, p, s) + b(m, l, p, s));
-
 var plural = '';
 if (s > 1)
 {
@@ -70,13 +67,17 @@ if (typeof('m')  === 'undefined')
     setc('l', l, 0.1);
     setc('p', p, 0.1);
     setc('s', s, 0.1);
-} else 
+} 
+else 
 {
     m = parseInt(getc('m'));
     l = parseInt(getc('l'));
     p = parseInt(getc('p'));
     s = parseInt(getc('s'));
 }
+
+console.log(m, l, p, s);
+console.log (a(m, l, p, s) + b(m, l, p, s));
 
 const prompt = document.querySelector('#prompt');
 prompt.innerHTML = `You begin your lifelong dream of being a ${animal} farmer! You start with <strong>${s} pair${plural}</strong> of newborn baby ${animal}s. 
