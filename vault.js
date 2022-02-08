@@ -70,6 +70,7 @@ if (document.cookie.indexOf('m') > -1)
     l = parseInt(getc('l'));
     p = parseInt(getc('p'));
     s = parseInt(getc('s'));
+    console.log(m);
 }
 else
 {
