@@ -10,9 +10,20 @@ function setc(name, val, hr)
     document.cookie = `${name}=${val}; expires=${d.toUTCString()}; path=/`;
 }
 
-const getCookieValue = (name) => (
+const getc = (name) => (
 document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
 )
+
+const submit = document.querySelector('#submit');
+submit.addEventListener('click', deleteCookies);
+
+function deleteCookies(e)
+{
+    document.cookie = "m=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "l=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "p=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "s=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
 
 var m = randomNum(5, 10)
 var l = randomNum(2, 5)
@@ -55,10 +66,18 @@ console.log(date.getTime())
 
 if (document.cookie.indexOf('m') > -1)
 {
+    m = parseInt(getc('m'));
+    l = parseInt(getc('l'));
+    p = parseInt(getc('p'));
+    s = parseInt(getc('s'));
 }
-
-console.log(getCookieValue('hey'))
-
+else
+{
+    setc('m', m, 0.1);
+    setc('l', l, 0.1);
+    setc('p', p, 0.1);
+    setc('s', s, 0.1);
+}
 
 const prompt = document.querySelector('#prompt');
 prompt.innerHTML = `You begin your lifelong dream of being a ${animal} farmer! You start with <strong>${s} pair${plural}</strong> of newborn baby ${animal}s. 
