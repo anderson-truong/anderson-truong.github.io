@@ -60,7 +60,7 @@ if (s > 1)
     plural = 's';
 }
 let date = new Date();
-console.log((date.getTime()).toUTCString())
+console.log(date.toUTCString())
 
 if (typeof('m')  === 'undefined')
 {
