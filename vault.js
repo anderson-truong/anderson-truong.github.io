@@ -77,6 +77,8 @@ else
     s = parseInt(getc('s'));
 }
 
+document.cookie = "username=wazzup; path=/";
+
 const prompt = document.querySelector('#prompt');
 prompt.innerHTML = `You begin your lifelong dream of being a ${animal} farmer! You start with <strong>${s} pair${plural}</strong> of newborn baby ${animal}s. 
 The adults of this species of ${animal} produce <strong>${p} baby pairs</strong> every month.
