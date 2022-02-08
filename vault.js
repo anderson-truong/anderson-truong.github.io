@@ -5,9 +5,10 @@ function randomNum(min, max)
 
 function setc(name, val, hr)
 {
-    let d = new Date();
-    d.setTime(d.getTime() + (hr * 3600000));
-    document.cookie = `${name}=${val}; expires=${d.toUTCString()}; path=/`;
+    const d = new Date();
+    d.setTime(d.getTime() + (hr*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = name + "=" + val + ";" + expires + ";path=/";
 }
 
 const getc = (name) => (
