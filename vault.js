@@ -110,10 +110,15 @@ if (getc('m'.charCodeAt() + 3) != null)
 else 
 {
     var animal = anims[anims.length * Math.random() | 0]
-    var m = randomNum(4, 6)
+    var m = randomNum(4, 8)
     var l = randomNum(2, 5)
-    var p = randomNum(2, 5)
+    var p = randomNum(2, 8)
     var s = randomNum(1, 3)
+    while (m < l + 1)
+    {
+        m = randomNum(4, 8)
+        l = randomNum(2, 5)
+    }
     var choice = randomNum(1, 4);
     setc('a'.charCodeAt() + 1, animal, 0.1);
     setc('m'.charCodeAt() + 3, m.toString(3), 0.5);
@@ -156,5 +161,5 @@ const prompt = document.querySelector('#prompt');
     prompt.innerHTML = `You begin your lifelong dream of being a <strong>${animal}</strong> farmer! You start with <strong>${s} pair${plural}</strong> of newborn baby ${animal}s. 
     Each pair of adult ${animal}s produce <strong>${p} baby pairs</strong> every month.
     It takes <strong>1 month</strong> for the babies to grow into adults.
-    You sell ${animal}s once they reach <strong>${l} months old</strong>, but after they produce their baby pairs.<br><br>
+    You sell ${animal}s the month after they reach <strong>${l} months old</strong>, but you first let them produce their baby pairs for that month.<br><br>
     ${ctext}`;
