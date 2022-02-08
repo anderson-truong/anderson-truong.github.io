@@ -10,6 +10,10 @@ function setc(name, val, hr)
     document.cookie = `${name}=${val}; expires=${d.toUTCString()}; path=/`;
 }
 
+const getCookieValue = (name) => (
+document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
+)
+
 var m = randomNum(5, 10)
 var l = randomNum(2, 5)
 var p = randomNum(2, 5)
@@ -49,8 +53,12 @@ if (s > 1)
 let date = new Date();
 console.log(date.getTime())
 
-setc("hey", 2, 0.1)
-document.cookie = "username=helllo; path=/"
+if (document.cookie.indexOf('m') > -1)
+{
+}
+
+console.log(getCookieValue('hey'))
+
 
 const prompt = document.querySelector('#prompt');
 prompt.innerHTML = `You begin your lifelong dream of being a ${animal} farmer! You start with <strong>${s} pair${plural}</strong> of newborn baby ${animal}s. 
