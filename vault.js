@@ -110,17 +110,17 @@ if (getc('m'.charCodeAt() + 3) != null)
 else 
 {
     var animal = anims[anims.length * Math.random() | 0]
-    var m = randomNum(3, 8)
+    var m = randomNum(4, 6)
     var l = randomNum(2, 5)
     var p = randomNum(2, 5)
     var s = randomNum(1, 3)
     var choice = randomNum(1, 4);
     setc('a'.charCodeAt() + 1, animal, 0.1);
-    setc('m'.charCodeAt() + 3, m.toString(3), 0.1);
-    setc('l'.charCodeAt() + 2, l.toString(2), 0.1);
-    setc('p'.charCodeAt() + 3, p.toString(3), 0.1);
-    setc('s'.charCodeAt() + 4, s.toString(4), 0.1);
-    setc('c'.charCodeAt() + 3, choice.toString(3), 0.1);
+    setc('m'.charCodeAt() + 3, m.toString(3), 0.5);
+    setc('l'.charCodeAt() + 2, l.toString(2), 0.5);
+    setc('p'.charCodeAt() + 3, p.toString(3), 0.5);
+    setc('s'.charCodeAt() + 4, s.toString(4), 0.5);
+    setc('c'.charCodeAt() + 3, choice.toString(3), 0.5);
 }
 
 var plural = '';
