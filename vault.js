@@ -77,7 +77,7 @@ else
     s = parseInt(getc('s'));
 }
 
-document.cookie = "username=wazzup; path=/";
+document.cookie = "username=wazzup";
 
 const prompt = document.querySelector('#prompt');
 prompt.innerHTML = `You begin your lifelong dream of being a ${animal} farmer! You start with <strong>${s} pair${plural}</strong> of newborn baby ${animal}s. 
