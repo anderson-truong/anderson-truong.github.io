@@ -64,20 +64,18 @@ if (s > 1)
 let date = new Date();
 console.log(date.getTime())
 
-if (document.cookie.indexOf('m') > -1)
-{
-    m = parseInt(getc('m'));
-    l = parseInt(getc('l'));
-    p = parseInt(getc('p'));
-    s = parseInt(getc('s'));
-    console.log(m);
-}
-else
+if (typeof('m')  === 'undefined')
 {
     setc('m', m, 0.1);
     setc('l', l, 0.1);
     setc('p', p, 0.1);
     setc('s', s, 0.1);
+} else 
+{
+    m = parseInt(getc('m'));
+    l = parseInt(getc('l'));
+    p = parseInt(getc('p'));
+    s = parseInt(getc('s'));
 }
 
 const prompt = document.querySelector('#prompt');
