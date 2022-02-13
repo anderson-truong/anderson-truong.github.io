@@ -244,10 +244,12 @@ var testerPrefix = "";
 var testerSuffix = "";
 var tester = "";
 var shiftTester = "";
+var totalTestCount = 0;
 
 function addCode()
 {
     // Generate Arrays
+    totalTestCount = 0;
     var stringTestArrays = [];
     var stringArrays = [];
     var maxArrays = [];
@@ -301,6 +303,7 @@ function addCode()
 
     if (selectors['locateMaximum']['active'])
     {
+        totalTestCount += arrayCount * (wordCount + 2);
         var maxArrayCode = `    int* locateMaximumArray = new int[${arrayCount * (wordCount + 2)}]{ ${maxArrays.join(', ')} };\n`;
         var maxArrayCodeDelete = "    delete[] locateMaximumArray;\n"
         declarations += maxArrayCode;
@@ -309,6 +312,7 @@ function addCode()
 
     if (selectors['countFloatingPointValues']['active'])
     {
+        totalTestCount += arrayCount * (wordCount + 2);
         var validFloatArrayCode = `    int* countFloatingPointValuesArray = new int[${arrayCount * (wordCount + 2)}]{ ${validFloatArrays.join(', ')} };\n`;
         var validFloatArrayCodeDelete = "    delete[] countFloatingPointValuesArray;\n"
         declarations += validFloatArrayCode;
@@ -317,6 +321,7 @@ function addCode()
 
     if (selectors['hasNoCapitals']['active'])
     {
+        totalTestCount += arrayCount * (wordCount + 2);
         var capArrayCode = `    bool* hasNoCapitalsArray = new bool[${arrayCount * (wordCount + 2)}]{ ${capArrays.join(', ')} };\n`;
         var capArrayCodeDelete = "    delete[] hasNoCapitalsArray;\n";
         declarations += capArrayCode;
@@ -330,6 +335,7 @@ function addCode()
         declarations += shiftLeftCode;
         deallocations += shiftLeftCodeDelete;
 
+        totalTestCount += (wordCount + 2) * amounts.length;
         var shiftLeftCountCode = `    int* shiftLeftCount = new int[${(wordCount + 2) * amounts.length}]{ ${shiftLeftCountArrays.join(', ')} };\n`;
         var shiftLeftCountCodeDelete = "    delete[] shiftLeftCount;\n";
         declarations += shiftLeftCountCode;
@@ -417,6 +423,7 @@ const mainPrefix = "int main()\n{\n";
 const mainSuffix = "}"
 
 const output = document.querySelector('#outputCode');
+const totalTest = document.querySelector('#totalTest');
 
 window.onload = regenerate;
 function regenerate()
@@ -430,6 +437,7 @@ function regenerate()
     output.textContent += shiftTester;
     output.textContent += deallocations;
     output.textContent += mainSuffix;
+    totalTest.textContent = "Total Tests: " + totalTestCount;
 }
 
 const clipboardPrompt = document.querySelector('#copied');
