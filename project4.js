@@ -222,15 +222,20 @@ var wordCount = 10;
 
 const testArrayCount = document.querySelector('#testCount')
 testArrayCount.addEventListener('input', function() {
-    if (!isNaN(testArrayCount.value) && testArrayCount.value != '0')
+    if (!isNaN(testArrayCount.value) && testArrayCount.value != '0' && testArrayCount.value)
+    {
+        console.log()
         arrayCount = parseInt(testArrayCount.value);
-    regenerate();
+        regenerate();
+    }
 })
 const wordsPerArray = document.querySelector('#wordsPerArray')
 wordsPerArray.addEventListener('input', function() {
-    if (!isNaN(wordsPerArray.value) && testArrayCount.value != '0')
+    if (!isNaN(wordsPerArray.value) && wordsPerArray.value != '0' && wordsPerArray.value)
+    {
         wordCount = parseInt(wordsPerArray.value);
-    regenerate();
+        regenerate();
+    }
 })
 
 var declarations = "";
