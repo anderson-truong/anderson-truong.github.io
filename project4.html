@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Project 3 Tester</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism-tomorrow.min.css" integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body class='my-5' style="background-color: #EAFDF8;">
+        <div class="container">
+            <div class="row text-center my-3">
+                <h1 class="display-6">anderson's spiffy</h1>
+                <h1 class="display-3">
+                    PROJECT 4 THINGY
+                </h1>
+            </div>
+            <div class="d-flex flex-column flex-lg-row justify-content-center align-items-lg-start align-items-center mt-5">
+                <div class="col-4 text-center mx-3">
+                    <h5 class="text-danger">YOU KNOW THE PROTOCOL</h5>
+                    <p>THESE TESTS DO NOT REFLECT THE ACTUAL GRADING OF YOUR PROJECT. FOR EDUCATIONAL PURPOSES ONLY lmao.</p>
+                </div>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center mt-3">
+                <div class="col-8 text-center">
+                    <a class="btn text-light" style="background: #139A43;" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        How does it work?
+                    </a>            
+                    <div class="collapse mt-3 text-light" style="background: #342E37; border: 5px solid #6987C9;" id="collapseExample">
+                          <strong>In short:</strong> this tester iterates through all of the test arrays and compares them to the true answer arrays.<br><br>
+                          <strong>Case Coverage:</strong><br>
+                          This covers all "n" values from -1 to the specified "Words per Test Array" value.<br>
+                          For the shiftLeft() function, it covers 8 different "amount" values:
+                          -1, 0, 1, half of "Words per Test Array" value rounded-down, half of "Words per Test Array" value rounded-up, "Words per Test Array" value, "Words per Test Array" value + 1, and 2 X "Words per Test Array" value.<br><br>
+                          <strong>Function Specs:</strong><br><br>
+                          testArrays[]: Generates a flattened 2-dimensional dynamic array of strings. Each "row" is considered a test string array.<br><br>
+                          locateMaximumArray[]: Generates ... of correct maximum index values with dimensions (Words per Test Array + 2) x Number of Test Arrays.<br><br>
+                          countFloatingPointValuesArray[]: Generates ... of correct floating point counts with same dimensions.<br><br>
+                          hasNoCapitalsArray[]: Generates ... of correct boolean capitalization values with same dimensions.<br><br>
+                          shiftLeftArray[]: Generates a flattened 3-dimensional dynamic array of strings of dimensions ((Words per Test Array + 2) x 8 x Words per Test Array).
+                          This array records the correctly changed string arrays based on the first test array. <br><br>
+                          shiftLeftArray[]: Generates ... of correct shiftLeft outputs of dimensions (Words per Test Array + 1) x 8.<br><br>
+                          shiftLeftArray[]: Generates an array of shiftLeft test amounts.
+                    </div> 
+                </div>   
+            </div>
+            <div class="d-flex flex-column flex-lg-row justify-content-center mt-5">
+                <div class="d-flex justify-content-center mx-2 mx-md-5 mb-4 mb-lg-auto">
+                    <div>
+                        <h2 class="text-center">function stuff</h2>
+                        <div class="form-check mt-4">
+                            <input class="form-check-input" type="checkbox" id="locateMaximum" checked>
+                            <label class="form-check-label" for="locateMaximum">
+                                <code class="language-cpp" style="white-space: nowrap;">int locateMaximum()</code>
+                            </label>
+                        </div>
+                        <div class="form-check mt-4">
+                            <input class="form-check-input" type="checkbox" id="countFloatingPointValues" checked>
+                            <label class="form-check-label" for="countFloatingPointValues">
+                                <code class="language-cpp" style="white-space: nowrap;">int countFloatingPointValues()</code>
+                            </label>
+                        </div>
+                        <div class="form-check mt-4">
+                            <input class="form-check-input" type="checkbox" id="hasNoCapitals" checked>
+                            <label class="form-check-label" for="hasNoCapitals">
+                                <code class="language-cpp" style="white-space: nowrap;">bool hasNoCapitals()</code>
+                            </label>
+                          </div>
+                        <div class="form-check mt-4">
+                            <input class="form-check-input" type="checkbox" id="shiftLeft" checked>
+                            <label class="form-check-label" for="shiftLeft">
+                                <code class="language-cpp" style="white-space: nowrap;">int shiftLeft()</code>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-center">custom settings</h2>
+                        <div class="text-center mt-3">
+                            <label for="testCount" class="form-label">Number of Test Arrays</label>
+                            <div class="col-3 m-auto">
+                                <input type="email" class="form-control" id="testCount" value="10">
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <label for="wordsPerArray" class="form-label">Words per Test Array</label>
+                            <div class="col-3 m-auto">
+                                <input type="email" class="form-control" id="wordsPerArray" value="10">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-column flex-lg-row justify-content-lg-center align-items-center align-items-lg-end mt-5">
+                <div class="d-flex my-2 align-items-end">
+                    <div>
+                        <button type="button" class="btn btn-lg mx-1 btn-success" id="generateCode" style="border: 2px solid #444140;">Regenerate Code</button>
+                    </div>
+                    <div class="text-center">
+                        <h6 id="copied">&nbsp;</h6>
+                        <button type="button" class="btn btn-lg mx-1 btn-warning" id="copyClipboard" style="border: 2px solid #444140;">Copy to Clipboard</button>
+                    </div>
+                </div>
+            </div>
+            <pre class="pre-scollable p-3 rounded border border-primary" style="background: #2d2d2d;"><code class="text-light" id="outputCode"></code></pre>
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js" integrity="sha512-NC2WFBzw/SdbWrzG0C+sg3iv1OITcQKsUitDcYKfOp9vxe92zpNlRc5Ad3q81kAp8Ff/fDV8pZQxdCCeyFdgLw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-GP4x8UWxWyh4BMbyJGOGneiTbkrWEF5izsVJByzVLodP8CuJH/n936+yQDMJJrOPUHLgyPbLiGw2rXmdvGdXHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+    <script src="project4.js" async defer></script>
+</html>
