@@ -223,7 +223,7 @@ var wordCount = 10;
 const testArrayCount = document.querySelector('#testCount')
 testArrayCount.addEventListener('input', function() {
     if (!isNaN(testArrayCount.value))
-        arrayCount = testArrayCount.value;
+        arrayCount = parseInt(testArrayCount.value);
     else
         arrayCount = 0;
     regenerate();
@@ -231,7 +231,7 @@ testArrayCount.addEventListener('input', function() {
 const wordsPerArray = document.querySelector('#wordsPerArray')
 wordsPerArray.addEventListener('input', function() {
     if (!isNaN(wordsPerArray.value))
-        wordCount = wordsPerArray.value;
+        wordCount = parseInt(wordsPerArray.value);
     else
         wordCount = 0;
     regenerate();
