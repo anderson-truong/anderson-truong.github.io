@@ -28,6 +28,7 @@ function randomFloat(decimalChance=0.75, maxDigits=5, invalidChance=0.2, randomC
     var digitCount = randomNum(1, maxDigits);
     var alphanum = 'ABCEFGHIJKLMNORSTUVWXYZabcefghijklmnorstuvwxyz~`!@#$%^&*()_+-={}[]:;<>?,./|';
     var validFloat = true;
+    var decimal = false;
 
     for (let i = 0; i < digitCount; i++)
     {
@@ -36,16 +37,23 @@ function randomFloat(decimalChance=0.75, maxDigits=5, invalidChance=0.2, randomC
     if (Math.random() <= decimalChance)
     {
         floatString = floatString.insert(randomNum(0, floatString.length), '.');
+        decimal = true;
     }
     if (Math.random() <= invalidChance)
     {
-        floatString = floatString.insert(randomNum(0, floatString.length), ',');
-        validFloat = false;
-        if (Math.random() <= randomCharChance)
+        if (Math.random() <= 0.5)
         {
-            floatString = floatString.insert(randomNum(0, floatString.length), alphanum.charAt(randomNum(0, alphanum.length - 1)));
-            validFloat = false;
+            if (!decimal)
+            {
+                floatString = floatString.insert(randomNum(0, floatString.length), '.');
+            }
+            floatString = floatString.insert(randomNum(0, floatString.length), '.');
         }
+        else 
+        {
+            floatString = floatString.insert(randomNum(0, floatString.length), ',');
+        }
+        validFloat = false;
     }
 
     return [floatString, validFloat];
@@ -75,13 +83,10 @@ function countFloatingPointValues(array, n)
     {
         let word = array[i];
         let isFloat = true;
+        let decimalCount = 0;
         for (let char of word)
         {
-            if (!(!isNaN(char) || char == '.'))
-            {
-                isFloat = false;
-                break;
-            }
+            isFloat *= (!isNaN(char) || (char == '.' && decimalCount++ == 0))
         }
         if (isFloat)
         {
@@ -149,7 +154,7 @@ function shiftLeft(array, n, amount, placeholder)
     return [newArray, replaceCount];
 }
 
-function generateStringArray(count, floats=true, maxFloatPercent=0.6, capitalize=true)
+function generateStringArray(count, floats=true, maxFloatPercent=0.7, capitalize=true)
 {
     var floatCount = Math.floor(randomNum(1, count*maxFloatPercent));
     if (!floats)
