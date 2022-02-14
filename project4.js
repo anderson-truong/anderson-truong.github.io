@@ -402,7 +402,7 @@ function addCode()
             int shiftCount = shiftLeft(testSample, n - 1, shiftLeftAmounts[amount], "");
             if (shiftCount != shiftLeftCount[(n * ${amounts.length}) + amount])
             {
-                cout << "=-=-=-=-=\\nshiftLeft(test, " << n - 1 << ", " << shiftLeftAmounts[amount] << ") returned wrong value\\nstring test = " << input << "\\nYour output: " << shiftCount << "\\nCorrect output : "  << shiftLeftCount[(n * ${amounts.length}) + amount] << "\\n\\n";
+                cout << "=-=-=-=-=\\nshiftLeft(test, " << n - 1 << ", " << shiftLeftAmounts[amount] << ", "") returned wrong value\\nstring test = " << input << "\\nYour output: " << shiftCount << "\\nCorrect output : "  << shiftLeftCount[(n * ${amounts.length}) + amount] << "\\n\\n";
             }
 
             string yourOutput = "{ ";
