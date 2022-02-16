@@ -22,7 +22,7 @@ function randomWord(capitalize=true, capitalizeChance=0.2)
     }
     return word;
 }
-function randomFloat(decimalChance=0.75, maxDigits=5, invalidChance=0.2, randomCharChance=0.2)
+function randomFloat(decimalChance=0.75, maxDigits=5, invalidChance=0.2, singledecimal=0.1)
 {
     var floatString = "";
     var digitCount = randomNum(1, maxDigits);
@@ -55,6 +55,8 @@ function randomFloat(decimalChance=0.75, maxDigits=5, invalidChance=0.2, randomC
         }
         validFloat = false;
     }
+    if (Math.random() <= singledecimal)
+        floatString = ".";
 
     return [floatString, validFloat];
 }
@@ -82,13 +84,21 @@ function countFloatingPointValues(array, n)
     for (let i = 0; i < n; i++)
     {
         let word = array[i];
-        let isFloat = true;
+        let numbers = 0;
         let decimalCount = 0;
         for (let char of word)
         {
-            isFloat *= (!isNaN(char) || (char == '.' && decimalCount++ == 0))
+            if (!isNaN(char))
+                numbers++;
+            else if (char == '.')
+                decimalCount++;
+            else
+            {
+                numbers = 0;
+                break;
+            }
         }
-        if (isFloat)
+        if (numbers > 0 && decimalCount <= 1)
         {
             floatCount++;
         }
@@ -242,6 +252,12 @@ wordsPerArray.addEventListener('input', function() {
         regenerate();
     }
 })
+var placeholder = "";
+const shiftLeftPlaceholder = document.querySelector('#shiftLeftPlaceholder');
+shiftLeftPlaceholder.addEventListener('input', function() {
+    placeholder = shiftLeftPlaceholder.value;
+    regenerate();
+});
 
 var declarations = "";
 var deallocations = "";
@@ -285,7 +301,7 @@ function addCode()
     {
         for (let amount of amounts)
         {
-            let shiftLeftOutput = shiftLeft(stringTestArrays[0], n, amount, "");
+            let shiftLeftOutput = shiftLeft(stringTestArrays[0], n, amount, placeholder);
             shiftLeftStringArrays.push(shiftLeftOutput[0].join(', '));
             shiftLeftCountArrays.push(shiftLeftOutput[1]);
         }
@@ -404,10 +420,10 @@ function addCode()
                 input += "\\"" + testSample[j] + "\\"" + +((j < ${wordCount} - 1) ? ", " : " }");
                 realOutput += "\\"" + shiftLeftArray[(n * ${amounts.length} * ${wordCount}) + (amount * ${wordCount}) + j] + "\\"" + ((j < ${wordCount} - 1) ? ", " : " }");
             }
-            int shiftCount = shiftLeft(testSample, n - 1, shiftLeftAmounts[amount], "");
+            int shiftCount = shiftLeft(testSample, n - 1, shiftLeftAmounts[amount], \"${placeholder}\");
             if (shiftCount != shiftLeftCount[(n * ${amounts.length}) + amount])
             {
-                cout << "=-=-=-=-=\\nshiftLeft(test, " << n - 1 << ", " << shiftLeftAmounts[amount] << ", \"\") returned wrong value\\nstring test = " << input << "\\nYour output: " << shiftCount << "\\nCorrect output : "  << shiftLeftCount[(n * ${amounts.length}) + amount] << "\\n\\n";
+                cout << "=-=-=-=-=\\nshiftLeft(test, " << n - 1 << ", " << shiftLeftAmounts[amount] << ", \\\"${placeholder}\\\") returned wrong value\\nstring test = " << input << "\\nYour output: " << shiftCount << "\\nCorrect output : "  << shiftLeftCount[(n * ${amounts.length}) + amount] << "\\n\\n";
             }
 
             string yourOutput = "{ ";
@@ -417,7 +433,7 @@ function addCode()
             }
             if (realOutput != yourOutput)
             {
-                cout << "=-=-=-=-=\\nshiftLeft(test, " << n - 1 << ", " << shiftLeftAmounts[amount] << ") changed original string incorrectly\\nstring test = " << input << "\\nYour changed string: " << yourOutput << "\\nCorrectly changed string : " << realOutput << "\\n\\n";
+                cout << "=-=-=-=-=\\nshiftLeft(test, " << n - 1 << ", " << shiftLeftAmounts[amount] << ", \\\"${placeholder}\\\") changed original string incorrectly\\nstring test = " << input << "\\nYour changed string: " << yourOutput << "\\nCorrectly changed string : " << realOutput << "\\n\\n";
             }
         }
     }\n`
