@@ -82,21 +82,19 @@ function countFloatingPointValues(array, n)
     for (let i = 0; i < n; i++)
     {
         let word = array[i];
-        let numbers = 0;
+        let isFloat = true;
         let decimalCount = 0;
         for (let char of word)
         {
-            if (!isNaN(char))
-                numbers++;
-            else if (char == '.')
-                decimalCount++;
-            else
+            if (isNaN(char) && char != '.')
             {
-                numbers = 0;
+                isFloat = false;
                 break;
             }
+            else if (char == '.')
+                decimalCount++;
         }
-        if (numbers > 0 && decimalCount <= 1)
+        if (isFloat && decimalCount <= 1)
         {
             floatCount++;
         }
