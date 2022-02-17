@@ -55,8 +55,6 @@ function randomFloat(decimalChance=0.75, maxDigits=5, invalidChance=0.2, singled
         }
         validFloat = false;
     }
-    if (Math.random() <= singledecimal)
-        floatString = ".";
 
     return [floatString, validFloat];
 }
