@@ -16,6 +16,7 @@
             position="0 0 -0.1"
             geometry="primitive: ring; radiusInner: 0.001; radiusOuter: 0.002"
             material="color: #E5E7E6; shader: flat"></a-entity>
+            <a-entity text="font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; value: anderson's dungeon; color: #F2F3D9; align: center; width: 0.25;"  rotation="0 0 0" position="0 0.075 -0.1"></a-entity>
             </a-entity>
         </a-entity>
         <a-entity class="navmesh" gltf-model="navmesh.gltf" position="0 0 0" scale="1 1 1" nav-mesh visible="false"></a-entity>
@@ -29,98 +30,97 @@
             <a-asset-item id="bookB" src="gltf/bookB.gltf.glb"></a-asset-item>
           </a-assets>
           <!--a-entity gltf-model="#tileb" position="-10 0 -20"></a-entity-->
-          <a-entity text="font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; value: welcome to anderson's dungeon; color: #F2F3D9; align: center; width: 2;"  rotation="0 -90 0" position="-1 1.2 -2"></a-entity>
-          <a-entity gltf-model="#tableMedium" rotation="0 0 0" position="0 0 -4"></a-entity>
-          <a-entity gltf-model="#bookcaseWide_broken" rotation="0 90 0" position="7 0 -4"></a-entity>
-          <a-entity text="font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; value: project 3 tester; color: white; align: center; width: 1;"  rotation="-95 180 90" position="6.95 0.88 -3.49"></a-entity>
-          <a-entity id="tester3-link" gltf-model="#bookB" rotation="95 0 0" position="6.8 0.8 -3.5"></a-entity>
-          <a-entity id="tester4-link" gltf-model="#bookOpenA" rotation="45 0 0" position="0 1 -3.8"></a-entity>
+          <a-entity gltf-model="#tableMedium" shadow="cast: true" rotation="0 0 0" position="0 0 -4"></a-entity>
+          <a-entity gltf-model="#bookcaseWide_broken" shadow="cast: true; receive: true;" rotation="0 90 0" position="6.5 0 -4"></a-entity>
+          <a-entity text="font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; value: project 3 tester; color: white; align: center; width: 1;"  rotation="-95 180 90" position="6.45 0.88 -3.49"></a-entity>
+          <a-entity id="tester3-link" gltf-model="#bookB" shadow="cast: true" rotation="95 0 0" position="6.3 0.8 -3.5"></a-entity>
+          <a-entity id="tester4-link" gltf-model="#bookOpenA" shadow="cast: true" rotation="45 0 0" position="0 1 -3.8"></a-entity>
           <a-entity text="font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; value: project 4 tester; color: #F3DE8A; align: center; width: 2;"  rotation="0 0 0" position="0 1.3 -3.8"></a-entity>
           
           <!--a-plane position="0 0 -4" rotation="-90 0 0" width="40" height="40" color="#7BC8A4"></a-plane-->
           <a-entity>
-            <a-entity gltf-model="#wallsingle" rotation="0 0 0" position="-4 0 -8"></a-entity>
-            <a-entity gltf-model="#wallsingle" rotation="0 180 0" position="-4 0 8"></a-entity>
-            <a-entity gltf-model="#wallsingle" rotation="0 90 0" position="-8 0 -4"></a-entity>
-            <a-entity gltf-model="#wallsingle" rotation="0 -90 0" position="8 0 -4"></a-entity>
-            <a-entity gltf-model="#wallsingle" rotation="0 0 0" position="0 0 -8"></a-entity>
-            <a-entity gltf-model="#wallsingle" rotation="0 180 0" position="0 0 8"></a-entity>
-            <a-entity gltf-model="#wallsingle" rotation="0 90 0" position="-8 0 0"></a-entity>
-            <a-entity gltf-model="#wallsingle" rotation="0 -90 0" position="8 0 0"></a-entity>
-            <a-entity gltf-model="#wallsingle" rotation="0 0 0" position="4 0 -8"></a-entity>
-            <a-entity gltf-model="#wallsingle" rotation="0 180 0" position="4 0 8"></a-entity>
-            <a-entity gltf-model="#wallsingle" rotation="0 90 0" position="-8 0 4"></a-entity>
-            <a-entity gltf-model="#wallsingle" rotation="0 -90 0" position="8 0 4"></a-entity>
-            <a-entity gltf-model="#wallcorner" rotation="0 90 0" position="-8 0 -8"></a-entity>
-            <a-entity gltf-model="#wallcorner" rotation="0 180 0" position="-8 0 8"></a-entity>
-            <a-entity gltf-model="#wallcorner" rotation="0 0 0" position="8 0 -8"></a-entity>
-            <a-entity gltf-model="#wallcorner" rotation="0 -90 0" position="8 0 8"></a-entity>
+            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 0 0" position="-4 0 -8"></a-entity>
+            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 180 0" position="-4 0 8"></a-entity>
+            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 90 0" position="-8 0 -4"></a-entity>
+            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 -90 0" position="8 0 -4"></a-entity>
+            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 0 0" position="0 0 -8"></a-entity>
+            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 180 0" position="0 0 8"></a-entity>
+            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 90 0" position="-8 0 0"></a-entity>
+            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 -90 0" position="8 0 0"></a-entity>
+            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 0 0" position="4 0 -8"></a-entity>
+            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 180 0" position="4 0 8"></a-entity>
+            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 90 0" position="-8 0 4"></a-entity>
+            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 -90 0" position="8 0 4"></a-entity>
+            <a-entity gltf-model="#wallcorner" shadow="cast: true; receive: true;" rotation="0 90 0" position="-8 0 -8"></a-entity>
+            <a-entity gltf-model="#wallcorner" shadow="cast: true; receive: true;" rotation="0 180 0" position="-8 0 8"></a-entity>
+            <a-entity gltf-model="#wallcorner" shadow="cast: true; receive: true;" rotation="0 0 0" position="8 0 -8"></a-entity>
+            <a-entity gltf-model="#wallcorner" shadow="cast: true; receive: true;" rotation="0 -90 0" position="8 0 8"></a-entity>
         </a-entity>
         <a-entity>
-          <a-entity gltf-model="#tileb" position="-7 -1 -7"></a-entity>
-          <a-entity gltf-model="#tileb" position="-7 -1 -5"></a-entity>
-          <a-entity gltf-model="#tileb" position="-7 -1 -3"></a-entity>
-          <a-entity gltf-model="#tileb" position="-7 -1 -1"></a-entity>
-          <a-entity gltf-model="#tileb" position="-7 -1 1"></a-entity>
-          <a-entity gltf-model="#tileb" position="-7 -1 3"></a-entity>
-          <a-entity gltf-model="#tileb" position="-7 -1 5"></a-entity>
-          <a-entity gltf-model="#tileb" position="-7 -1 7"></a-entity>
-          <a-entity gltf-model="#tileb" position="-5 -1 -7"></a-entity>
-          <a-entity gltf-model="#tileb" position="-5 -1 -5"></a-entity>
-          <a-entity gltf-model="#tileb" position="-5 -1 -3"></a-entity>
-          <a-entity gltf-model="#tileb" position="-5 -1 -1"></a-entity>
-          <a-entity gltf-model="#tileb" position="-5 -1 1"></a-entity>
-          <a-entity gltf-model="#tileb" position="-5 -1 3"></a-entity>
-          <a-entity gltf-model="#tileb" position="-5 -1 5"></a-entity>
-          <a-entity gltf-model="#tileb" position="-5 -1 7"></a-entity>
-          <a-entity gltf-model="#tileb" position="-3 -1 -7"></a-entity>
-          <a-entity gltf-model="#tileb" position="-3 -1 -5"></a-entity>
-          <a-entity gltf-model="#tileb" position="-3 -1 -3"></a-entity>
-          <a-entity gltf-model="#tileb" position="-3 -1 -1"></a-entity>
-          <a-entity gltf-model="#tileb" position="-3 -1 1"></a-entity>
-          <a-entity gltf-model="#tileb" position="-3 -1 3"></a-entity>
-          <a-entity gltf-model="#tileb" position="-3 -1 5"></a-entity>
-          <a-entity gltf-model="#tileb" position="-3 -1 7"></a-entity>
-          <a-entity gltf-model="#tileb" position="-1 -1 -7"></a-entity>
-          <a-entity gltf-model="#tileb" position="-1 -1 -5"></a-entity>
-          <a-entity gltf-model="#tileb" position="-1 -1 -3"></a-entity>
-          <a-entity gltf-model="#tileb" position="-1 -1 -1"></a-entity>
-          <a-entity gltf-model="#tileb" position="-1 -1 1"></a-entity>
-          <a-entity gltf-model="#tileb" position="-1 -1 3"></a-entity>
-          <a-entity gltf-model="#tileb" position="-1 -1 5"></a-entity>
-          <a-entity gltf-model="#tileb" position="-1 -1 7"></a-entity>
-          <a-entity gltf-model="#tileb" position="1 -1 -7"></a-entity>
-          <a-entity gltf-model="#tileb" position="1 -1 -5"></a-entity>
-          <a-entity gltf-model="#tileb" position="1 -1 -3"></a-entity>
-          <a-entity gltf-model="#tileb" position="1 -1 -1"></a-entity>
-          <a-entity gltf-model="#tileb" position="1 -1 1"></a-entity>
-          <a-entity gltf-model="#tileb" position="1 -1 3"></a-entity>
-          <a-entity gltf-model="#tileb" position="1 -1 5"></a-entity>
-          <a-entity gltf-model="#tileb" position="1 -1 7"></a-entity>
-          <a-entity gltf-model="#tileb" position="3 -1 -7"></a-entity>
-          <a-entity gltf-model="#tileb" position="3 -1 -5"></a-entity>
-          <a-entity gltf-model="#tileb" position="3 -1 -3"></a-entity>
-          <a-entity gltf-model="#tileb" position="3 -1 -1"></a-entity>
-          <a-entity gltf-model="#tileb" position="3 -1 1"></a-entity>
-          <a-entity gltf-model="#tileb" position="3 -1 3"></a-entity>
-          <a-entity gltf-model="#tileb" position="3 -1 5"></a-entity>
-          <a-entity gltf-model="#tileb" position="3 -1 7"></a-entity>
-          <a-entity gltf-model="#tileb" position="5 -1 -7"></a-entity>
-          <a-entity gltf-model="#tileb" position="5 -1 -5"></a-entity>
-          <a-entity gltf-model="#tileb" position="5 -1 -3"></a-entity>
-          <a-entity gltf-model="#tileb" position="5 -1 -1"></a-entity>
-          <a-entity gltf-model="#tileb" position="5 -1 1"></a-entity>
-          <a-entity gltf-model="#tileb" position="5 -1 3"></a-entity>
-          <a-entity gltf-model="#tileb" position="5 -1 5"></a-entity>
-          <a-entity gltf-model="#tileb" position="5 -1 7"></a-entity>
-          <a-entity gltf-model="#tileb" position="7 -1 -7"></a-entity>
-          <a-entity gltf-model="#tileb" position="7 -1 -5"></a-entity>
-          <a-entity gltf-model="#tileb" position="7 -1 -3"></a-entity>
-          <a-entity gltf-model="#tileb" position="7 -1 -1"></a-entity>
-          <a-entity gltf-model="#tileb" position="7 -1 1"></a-entity>
-          <a-entity gltf-model="#tileb" position="7 -1 3"></a-entity>
-          <a-entity gltf-model="#tileb" position="7 -1 5"></a-entity>
-          <a-entity gltf-model="#tileb" position="7 -1 7"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-7 -1 -7"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-7 -1 -5"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-7 -1 -3"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-7 -1 -1"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-7 -1 1"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-7 -1 3"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-7 -1 5"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-7 -1 7"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-5 -1 -7"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-5 -1 -5"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-5 -1 -3"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-5 -1 -1"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-5 -1 1"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-5 -1 3"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-5 -1 5"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-5 -1 7"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-3 -1 -7"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-3 -1 -5"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-3 -1 -3"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-3 -1 -1"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-3 -1 1"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-3 -1 3"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-3 -1 5"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-3 -1 7"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-1 -1 -7"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-1 -1 -5"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-1 -1 -3"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-1 -1 -1"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-1 -1 1"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-1 -1 3"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-1 -1 5"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="-1 -1 7"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="1 -1 -7"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="1 -1 -5"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="1 -1 -3"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="1 -1 -1"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="1 -1 1"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="1 -1 3"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="1 -1 5"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="1 -1 7"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="3 -1 -7"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="3 -1 -5"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="3 -1 -3"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="3 -1 -1"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="3 -1 1"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="3 -1 3"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="3 -1 5"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="3 -1 7"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="5 -1 -7"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="5 -1 -5"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="5 -1 -3"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="5 -1 -1"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="5 -1 1"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="5 -1 3"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="5 -1 5"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="5 -1 7"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="7 -1 -7"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="7 -1 -5"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="7 -1 -3"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="7 -1 -1"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="7 -1 1"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="7 -1 3"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="7 -1 5"></a-entity>
+          <a-entity gltf-model="#tileb" shadow="receive: true" position="7 -1 7"></a-entity>
       </a-entity>
     </a-scene>
     <script>
