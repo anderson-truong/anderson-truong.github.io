@@ -55,6 +55,10 @@ function randomFloat(decimalChance=0.75, maxDigits=5, invalidChance=0.2, singled
         }
         validFloat = false;
     }
+    if (Math.random() <= 0.2)
+    {
+        floatString = "";
+    }
 
     return [floatString, validFloat];
 }
@@ -82,7 +86,7 @@ function countFloatingPointValues(array, n)
     for (let i = 0; i < n; i++)
     {
         let word = array[i];
-        let isFloat = true;
+        let isFloat = word != "" ? true : false;
         let decimalCount = 0;
         for (let char of word)
         {
