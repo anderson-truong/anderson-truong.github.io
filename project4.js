@@ -55,7 +55,11 @@ function randomFloat(decimalChance=0.75, maxDigits=5, invalidChance=0.2, singled
         }
         validFloat = false;
     }
-    if (Math.random() <= 0.2)
+    if (Math.random() <= 0.1)
+    {
+        floatString = ".";
+    }
+    if (Math.random() <= 0.1)
     {
         floatString = "";
     }
@@ -90,15 +94,9 @@ function countFloatingPointValues(array, n)
         let decimalCount = 0;
         for (let char of word)
         {
-            if (isNaN(char) && char != '.')
-            {
-                isFloat = false;
-                break;
-            }
-            else if (char == '.')
-                decimalCount++;
+            isFloat *= (!isNaN(char) || (char == '.' && decimalCount++ == 0))
         }
-        if (isFloat && decimalCount <= 1)
+        if (isFloat)
         {
             floatCount++;
         }
