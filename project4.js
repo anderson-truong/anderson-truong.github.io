@@ -259,6 +259,7 @@ shiftLeftPlaceholder.addEventListener('input', function() {
 
 var declarations = "";
 var deallocations = "";
+var endstate = "";
 var testerPrefix = "";
 var testerSuffix = "";
 var tester = "";
@@ -307,6 +308,7 @@ function addCode()
     // DECLARATIONS AND DEALLOCATIONS
     declarations = "";
     deallocations = "";
+    endstate = "    std::cout << \"that's a spicy meatball\" << std::endl;"
 
     var allActive = 0;
     for (let property in selectors)
@@ -371,8 +373,8 @@ function addCode()
     {
         testerPrefix = `\n    for (int i{}; i < ${arrayCount}; i++)
     {
-        string subArray[${wordCount}];
-        string arrayString = "{ ";
+        std::string subArray[${wordCount}];
+        std::string arrayString = "{ ";
         for (int j{}; j < ${wordCount}; j++)
         {
             subArray[j] = testArrays[i * ${wordCount} + j];
@@ -390,7 +392,7 @@ function addCode()
         {
             tester += `            if (${property}Array[i * ${wordCount + 2} + n] != ${property}(subArray, n - 1))
             {
-                cout << "=-=-=-=-=\\n${property}(test, " << n - 1 << ") returned wrong value\\nstring test = " << arrayString << "\\nYour output: " << ${property}(subArray, n - 1) << "\\nCorrect output: " << ${property}Array[i * ${wordCount + 2} + n] << "\\n\\n";
+                std::cout << "=-=-=-=-=\\n${property}(test, " << n - 1 << ") returned wrong value\\nstring test = " << arrayString << "\\nYour output: " << ${property}(subArray, n - 1) << "\\nCorrect output: " << ${property}Array[i * ${wordCount + 2} + n] << "\\n\\n";
             }\n`;
         }
     }
@@ -398,8 +400,8 @@ function addCode()
     shiftTester = "";
     if (selectors['shiftLeft']['active'])
     {
-        shiftTester += `\n    string shiftLeftTestArray[${wordCount}];
-    string shiftLeftTestString = "{ ";
+        shiftTester += `\n    std::string shiftLeftTestArray[${wordCount}];
+    std::string shiftLeftTestString = "{ ";
     for (int j{}; j < ${wordCount}; j++)
     {
         shiftLeftTestArray[j] = testArrays[j];
@@ -409,9 +411,9 @@ function addCode()
     {
         for (int amount{}; amount < ${amounts.length}; amount++)
         {
-            string testSample[${wordCount}];
-            string input = "{ ";
-            string realOutput = "{ ";
+            std::string testSample[${wordCount}];
+            std::string input = "{ ";
+            std::string realOutput = "{ ";
             for (int j{}; j < ${wordCount}; j++)
             {
                 testSample[j] = shiftLeftTestArray[j];
@@ -421,17 +423,17 @@ function addCode()
             int shiftCount = shiftLeft(testSample, n - 1, shiftLeftAmounts[amount], \"${placeholder}\");
             if (shiftCount != shiftLeftCount[(n * ${amounts.length}) + amount])
             {
-                cout << "=-=-=-=-=\\nshiftLeft(test, " << n - 1 << ", " << shiftLeftAmounts[amount] << ", \\\"${placeholder}\\\") returned wrong value\\nstring test = " << input << "\\nYour output: " << shiftCount << "\\nCorrect output : "  << shiftLeftCount[(n * ${amounts.length}) + amount] << "\\n\\n";
+                std::cout << "=-=-=-=-=\\nshiftLeft(test, " << n - 1 << ", " << shiftLeftAmounts[amount] << ", \\\"${placeholder}\\\") returned wrong value\\nstring test = " << input << "\\nYour output: " << shiftCount << "\\nCorrect output : "  << shiftLeftCount[(n * ${amounts.length}) + amount] << "\\n\\n";
             }
 
-            string yourOutput = "{ ";
+            std::string yourOutput = "{ ";
             for (int j{}; j < ${wordCount}; j++)
             {
                 yourOutput += "\\"" + testSample[j] + "\\"" + +((j < ${wordCount} - 1) ? ", " : " }");
             }
             if (realOutput != yourOutput)
             {
-                cout << "=-=-=-=-=\\nshiftLeft(test, " << n - 1 << ", " << shiftLeftAmounts[amount] << ", \\\"${placeholder}\\\") changed original string incorrectly\\nstring test = " << input << "\\nYour changed string: " << yourOutput << "\\nCorrectly changed string : " << realOutput << "\\n\\n";
+                std::cout << "=-=-=-=-=\\nshiftLeft(test, " << n - 1 << ", " << shiftLeftAmounts[amount] << ", \\\"${placeholder}\\\") changed original string incorrectly\\nstring test = " << input << "\\nYour changed string: " << yourOutput << "\\nCorrectly changed string : " << realOutput << "\\n\\n";
             }
         }
     }\n`
@@ -455,6 +457,7 @@ function regenerate()
     output.textContent += testerSuffix;
     output.textContent += shiftTester;
     output.textContent += deallocations;
+    output.textContent += endstate;
     output.textContent += mainSuffix;
     totalTest.textContent = "Total Tests: " + totalTestCount;
 }
