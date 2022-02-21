@@ -39,6 +39,9 @@
 
             <a-asset-item id="coinsLarge" src="gltf/coinsLarge.gltf.glb"></a-asset-item>
             <a-asset-item id="dagger_rare" src="gltf/dagger_rare.gltf.glb"></a-asset-item>
+            <a-asset-item id="axe_rare" src="gltf/axe_rare.gltf.glb"></a-asset-item>
+            <a-asset-item id="sword_rare" src="gltf/sword_rare.gltf.glb"></a-asset-item>
+            <a-asset-item id="lootSackA" src="gltf/lootSackA.gltf.glb"></a-asset-item>
 
             <a-asset-item id="diglett" src="poke/diglett.glb"></a-asset-item>
 
@@ -59,20 +62,24 @@
 
           <a-entity text="font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; value: project 5 tester?; color: #F3DE8A; align: center; width: 2;"  rotation="0 0 0" position="0 1.3 -3.8"></a-entity>
           <!--a-entity gltf-model="#bookOpenA" shadow="receive: false; cast: true" rotation="45 0 0" position="0 1 -3.8"></a-entity-->
-          <a-entity id="tester5-text" text="font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; value: how'd this end up here?; color: #F3DE8A; align: center; width: 2;"  rotation="-90 90 0" position="-5.4 3 16"></a-entity>
-          <a-entity id="tester5-link" gltf-model="#bookOpenB" shadow="receive: false; cast: true" rotation="0 -90 0" position="-5 3 16"></a-entity>
           <a-entity text="font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; value: project 6 WIP; color: white; align: center; width: 1;"  rotation="-90 45 0" position="0.6 0.845 -4.3"></a-entity>
           <a-entity id="" gltf-model="#bookC" shadow="receive: false; cast: true" rotation="90 135 0" position="0.7 0.77 -4.2"></a-entity>
           <a-entity id="" gltf-model="#coinsLarge" shadow="receive: false; cast: true" rotation="0 0 0" position="0.7 0.69 -4" scale="0.2 0.2 0.2"></a-entity>
           <a-entity id="" gltf-model="#dagger_rare" shadow="receive: false; cast: true" rotation="190 35 0" position="0.7 1 -3.6" scale="0.5 0.5 0.5"></a-entity>
-
-          <a-entity gltf-model="#totoro" shadow="receive: false" rotation="0 -90 0" position="12 0 0" scale="0.5 0.5 0.5"></a-entity>
+          <a-entity id="" gltf-model="#axe_rare" shadow="receive: false; cast: true" rotation="-10 -90 200" position="-1.05 0.58 -3.8" scale="1 1 1"></a-entity>
+          <a-entity id="" gltf-model="#lootSackA" shadow="receive: false; cast: true" rotation="0 0 0" position="-5.8 0 -5.8" scale="3 3 3"></a-entity>
 
           <a-entity gltf-model="#diglett" shadow="receive: false" rotation="0 180 0" position="0 0 -6" scale="0.5 0.5 0.5"></a-entity>
           <a-entity gltf-model="#diglett" shadow="receive: false" rotation="0 180 0" position="-0.9 0 -6.2" scale="0.3 0.3 0.3"></a-entity>
           <a-entity gltf-model="#diglett" shadow="receive: false" rotation="0 180 0" position="1 0 -6.2" scale="0.4 0.4 0.4"></a-entity>
 
-          <a-entity gltf-model="#toilet" shadow="receive: false" rotation="0 90 0" position="-10 10 15" scale="0.05 0.05 0.05"></a-entity>
+          <a-entity>
+            <a-entity gltf-model="#totoro" shadow="receive: false" rotation="0 -90 0" position="12 0 0" scale="0.5 0.5 0.5"></a-entity>
+            <a-entity gltf-model="#toilet" shadow="receive: false" rotation="0 90 0" position="-10 10 15" scale="0.05 0.05 0.05"></a-entity>
+            <a-entity id="tester5-text" text="font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; value: how'd this end up here?; color: #F3DE8A; align: center; width: 2;"  rotation="-90 90 0" position="-5.4 3 16"></a-entity>
+            <a-entity id="tester5-link" gltf-model="#bookOpenB" shadow="receive: false; cast: true" rotation="0 -90 0" position="-5 3 16"></a-entity>
+            <a-entity id="" gltf-model="#sword_rare" shadow="receive: false; cast: true" rotation="180 0 0" position="4 30 -10" scale="40 40 40"></a-entity> 
+          </a-entity>
           <a-entity gltf-model="#car" shadow="receive: false" rotation="0 180 0" position="-6 0 5" scale="1 1 1"></a-entity>
           <!--a-plane position="0 0 -4" rotation="-90 0 0" width="40" height="40" color="#7BC8A4"></a-plane-->
           <a-entity>
