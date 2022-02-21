@@ -24,9 +24,6 @@ function getc(name) {
     return match ? match[1] : null;
 }
 
-const submit = document.querySelector('#submit');
-submit.addEventListener('click', corr);
-
 function a(m, l, p, s)
 {
     if (m <= 0)
@@ -59,6 +56,41 @@ function so(m, l, p, s)
     return sum;
 }
 
+function deleteCookies()
+{
+    document.cookie = `${'a'.charCodeAt() + 1}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    document.cookie = `${'m'.charCodeAt() + 3}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    document.cookie = `${'l'.charCodeAt() + 2}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    document.cookie = `${'p'.charCodeAt() + 3}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    document.cookie = `${'s'.charCodeAt() + 4}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    document.cookie = `${'c'.charCodeAt() + 3}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    document.cookie = 'acc=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+}
+
+if (!getc('acc'))
+{
+    document.body.innerHTML += `<div id="test">
+    <div class="d-flex justify-content-center my-5" id="puzzletitle">
+        <h1 class="display-6" id="title">oh no! the tester seems to be locked by a puzzle.</h1>
+    </div>
+    <div class="d-flex justify-content-center" id="puzzleprompt">
+        <div class="col-8 col-md-6 col-lg-4">
+            <p id="prompt">
+            </p>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center" id="puzzleanswer">
+        <div class="col-8 col-md-6 col-lg-4">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Answer here</span>
+                <input type="text" class="form-control" id="answer">
+                <button class="btn btn-outline-secondary" type="button" id="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>`
+const submit = document.querySelector('#submit');
+submit.addEventListener('click', corr);
 const answer = document.querySelector('#answer')
 const title = document.querySelector("#title")
 const pprompt = document.querySelector("#puzzleprompt")
@@ -72,25 +104,16 @@ function corr(e)
         unlock(1);
     }
 }
-
 function unlock(num)
 {
     title.textContent = `You have been granted ${num} day access.`;
     pprompt.style.visibility = "hidden";
     panswer.style.visibility = "hidden";
     setcday('acc', 1, num);
+    setTimeout(function(){
+        window.location.reload();
+    }, 2000);
 }
-
-function deleteCookies()
-{
-    document.cookie = `${'a'.charCodeAt() + 1}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-    document.cookie = `${'m'.charCodeAt() + 3}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-    document.cookie = `${'l'.charCodeAt() + 2}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-    document.cookie = `${'p'.charCodeAt() + 3}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-    document.cookie = `${'s'.charCodeAt() + 4}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-    document.cookie = `${'c'.charCodeAt() + 3}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-}
-
 const anims = ['baboon', 'dodo bird', 'iguana', 'capybara', 'camel', 
 'kangaroo', 'axolotl', 'manatee', 'naked mole rat', 'jerboa', 
 'pangolin', 'alpaca', 'porcupine', 'newt', 'gorilla', 'llama',
@@ -163,3 +186,8 @@ const prompt = document.querySelector('#prompt');
     It takes <strong>1 month</strong> for the babies to grow into adults.
     You sell ${animal}s the month after they reach <strong>${l} months old</strong>, but you first let them produce their baby pairs for that month.<br><br>
     ${ctext}`;
+}
+else
+{
+    document.body.innerHTML += "<p>Hey</p>"
+}
