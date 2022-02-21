@@ -60,7 +60,7 @@
           <a-entity text="font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; value: project 4 tester; color: white; align: center; width: 1;"  rotation="-95 -210 90" position="6.42 0.945 -4.48"></a-entity>
           <a-entity id="tester4-link" gltf-model="#bookE" shadow="receive: false; cast: true" rotation="95 -30 0" position="6.3 0.87 -4.55"></a-entity>
 
-          <a-entity text="font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; value: project 5 tester?; color: #F3DE8A; align: center; width: 2;"  rotation="0 0 0" position="0 1.3 -3.8"></a-entity>
+          <a-entity text="font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; value: project 5 tester?\nI think I dropped it in the toilet.\nIf only there was a way to reach it...\nlike /fly in minecraft...; color: #F3DE8A; align: center; width: 2;"  rotation="0 0 0" position="0 1.3 -3.8"></a-entity>
           <!--a-entity gltf-model="#bookOpenA" shadow="receive: false; cast: true" rotation="45 0 0" position="0 1 -3.8"></a-entity-->
           <a-entity text="font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; value: project 6 WIP; color: white; align: center; width: 1;"  rotation="-90 45 0" position="0.6 0.845 -4.3"></a-entity>
           <a-entity id="" gltf-model="#bookC" shadow="receive: false; cast: true" rotation="90 135 0" position="0.7 0.77 -4.2"></a-entity>
@@ -172,6 +172,8 @@
       tester3_link.addEventListener('click', function (evt) {window.open('../project3');});
       let tester4_link = document.querySelector('#tester4-link');
       tester4_link.addEventListener('click', function (evt) {window.open('../project4');});
+      let tester5_link = document.querySelector('#tester5-link');
+      tester5_link.addEventListener('click', function (evt) {window.open('../project5');});
       let tester2_link = document.querySelector('#tester2-link');
       tester2_link.addEventListener('click', function (evt) {window.open('https://github.com/anderson-truong/CS31-Project-2-Automated-Testing');});
       
@@ -179,7 +181,7 @@
       function fly()
       {
         player.removeAttribute('movement-controls');
-        player.setAttribute('movement-controls', "fly: true; speed: 0.3;")
+        player.setAttribute('movement-controls', "fly: true; speed: 0.5;")
       }
       </script>
   </body>
