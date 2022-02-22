@@ -190,3 +190,12 @@ else
 {
     document.body.innerHTML += "<p>Hey</p>"
 }
+
+function specialAccess(name)
+{
+    var names = ['thomas ho', 'caden davis', 'nic conta', 'tiffany chang', 'ying chou'];
+    if (names.includes(name.toLowerCase()))
+    {
+        unlock(1);
+    }
+}
