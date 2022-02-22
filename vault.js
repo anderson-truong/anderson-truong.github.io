@@ -131,7 +131,7 @@ if (getc('m'.charCodeAt() + 3) != null)
 } 
 else 
 {
-    var animal = anims[anims.length * Math.random() | 0]
+    var animal = anims[Math.floor(Math.random()*anims.length)]
     var m = randomNum(4, 8)
     var l = randomNum(2, 5)
     var p = randomNum(2, 8)
