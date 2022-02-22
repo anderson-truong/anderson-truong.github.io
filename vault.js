@@ -193,7 +193,7 @@ else
 
 function specialAccess(name)
 {
-    var names = ['thomas ho', 'caden davis', 'nic conta', 'tiffany chang', 'ying chou'];
+    var names = ['thomas ho', 'caden davis', 'nic conta', 'nicola conta', 'tiffany chang', 'ying chou'];
     if (names.includes(name.toLowerCase()))
     {
         unlock(1);
