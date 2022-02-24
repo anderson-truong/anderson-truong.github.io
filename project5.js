@@ -112,6 +112,7 @@ window.onload = regenerate;
 function regenerate()
 {
     output.textContent = text;
+    Prism.highlightAll();
 }
 
 const clipboardPrompt = document.querySelector('#copied');
