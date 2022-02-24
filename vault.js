@@ -1,1 +1,201 @@
-var _0x231470=_0x39a9;(function(_0x3c6a5c,_0x2aea26){var _0x2f5b27=_0x39a9,_0xceed50=_0x3c6a5c();while(!![]){try{var _0x416c9e=-parseInt(_0x2f5b27(0xff))/0x1+parseInt(_0x2f5b27(0xfc))/0x2+parseInt(_0x2f5b27(0x130))/0x3+-parseInt(_0x2f5b27(0x134))/0x4+-parseInt(_0x2f5b27(0x10d))/0x5+parseInt(_0x2f5b27(0xfe))/0x6+parseInt(_0x2f5b27(0x13e))/0x7*(parseInt(_0x2f5b27(0x106))/0x8);if(_0x416c9e===_0x2aea26)break;else _0xceed50['push'](_0xceed50['shift']());}catch(_0x38adda){_0xceed50['push'](_0xceed50['shift']());}}}(_0x470b,0x8fea9));function randomNum(_0x30f8b0,_0xa2a123){var _0x42597a=_0x39a9;return Math[_0x42597a(0x13b)](Math[_0x42597a(0x137)]()*(_0xa2a123-_0x30f8b0+0x1)+_0x30f8b0);}function setc(_0x1beb82,_0x2817e4,_0x54a81b){var _0x24a2cd=_0x39a9;const _0x2018ea=new Date();_0x2018ea['setTime'](_0x2018ea[_0x24a2cd(0x13d)]()+_0x54a81b*0x3c*0x3c*0x3e8);let _0x1c9945=_0x24a2cd(0xfb)+_0x2018ea[_0x24a2cd(0x109)]();document[_0x24a2cd(0x136)]=_0x1beb82+'='+_0x2817e4+';'+_0x1c9945+_0x24a2cd(0x12e);}function setcday(_0x4aa91b,_0x42a4bf,_0x191051){var _0x41cb43=_0x39a9;const _0x3abf8b=new Date();_0x3abf8b[_0x41cb43(0x102)](_0x3abf8b[_0x41cb43(0x13d)]()+_0x191051*0x18*0x3c*0x3c*0x3e8);let _0x41b540=_0x41cb43(0xfb)+_0x3abf8b[_0x41cb43(0x109)]();document[_0x41cb43(0x136)]=_0x4aa91b+'='+_0x42a4bf+';'+_0x41b540+_0x41cb43(0x12e);}function getc(_0x38b0f2){var _0x435072=_0x39a9,_0x13759e=document['cookie'][_0x435072(0xf7)](RegExp(_0x435072(0x123)+_0x38b0f2+_0x435072(0xf3)));return _0x13759e?_0x13759e[0x1]:null;}function deleteCookies(){var _0x27378d=_0x39a9;document[_0x27378d(0x136)]='a'[_0x27378d(0x114)]()+0x1+'=;\x20expires=Thu,\x2001\x20Jan\x201970\x2000:00:00\x20UTC;\x20path=/;',document[_0x27378d(0x136)]='m'[_0x27378d(0x114)]()+0x3+_0x27378d(0x11d),document[_0x27378d(0x136)]='l'[_0x27378d(0x114)]()+0x2+'=;\x20expires=Thu,\x2001\x20Jan\x201970\x2000:00:00\x20UTC;\x20path=/;',document[_0x27378d(0x136)]='p'[_0x27378d(0x114)]()+0x3+_0x27378d(0x11d),document['cookie']='s'[_0x27378d(0x114)]()+0x4+_0x27378d(0x11d),document[_0x27378d(0x136)]='c'['charCodeAt']()+0x3+_0x27378d(0x11d),document[_0x27378d(0x136)]=_0x27378d(0x129);}function _0x470b(){var _0x3a9a0d=['#prompt','</strong>\x20of\x20newborn\x20baby\x20','zebra','=;\x20expires=Thu,\x2001\x20Jan\x201970\x2000:00:00\x20UTC;\x20path=/;','How\x20many\x20','value','</strong>\x20months?','textContent','How\x20many\x20<strong>baby</strong>\x20','(?:^|;\x5cs*)','s\x20do\x20you\x20currently\x20own\x20(unsold)\x20after\x20<strong>','s\x20have\x20you\x20<strong>sold</strong>\x20after\x20<strong>','marmoset','#submit','</strong>\x20farmer!\x20You\x20start\x20with\x20<strong>','acc=;\x20expires=Thu,\x2001\x20Jan\x201970\x2000:00:00\x20UTC;\x20path=/;','innerHTML','location','camel','s\x20the\x20month\x20after\x20they\x20reach\x20<strong>',';path=/','You\x20begin\x20your\x20lifelong\x20dream\x20of\x20being\x20a\x20<strong>','1877961PSABbb','kangaroo','visibility','dodo\x20bird','943996iCxTOz','gorilla','cookie','random','hidden','polar\x20bear','pangolin','floor','addEventListener','getTime','362873icEcpo','#puzzleanswer','\x20day\x20access.','=([^;]*)','toString','baboon','log','match','click','naked\x20mole\x20rat','#puzzleprompt','expires=','116862GHiAkA','onload','3868656fZlfhf','816319uzLRGR','giraffe','<div\x20id=\x22test\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22d-flex\x20justify-content-center\x20my-5\x22\x20id=\x22puzzletitle\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h1\x20class=\x22display-6\x22\x20id=\x22title\x22>oh\x20no!\x20the\x20tester\x20seems\x20to\x20be\x20locked\x20by\x20a\x20puzzle.</h1>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22d-flex\x20justify-content-center\x22\x20id=\x22puzzleprompt\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-8\x20col-md-6\x20col-lg-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20id=\x22prompt\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22d-flex\x20justify-content-center\x22\x20id=\x22puzzleanswer\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-8\x20col-md-6\x20col-lg-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22input-group\x20mb-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22input-group-text\x22>Answer\x20here</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20class=\x22form-control\x22\x20id=\x22answer\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn\x20btn-outline-secondary\x22\x20type=\x22button\x22\x20id=\x22submit\x22>Submit</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>','setTime','newt','reload','skunk','104RotBLL','\x20pair','querySelector','toUTCString','iguana','You\x20have\x20been\x20granted\x20','hedgehog','1806510cckGNj','body','s\x20produce\x20<strong>','porcupine','Invalid\x20Access!','acc','axolotl','charCodeAt','orangutan','#title','aardvark','manatee','gila\x20monster'];_0x470b=function(){return _0x3a9a0d;};return _0x470b();}const pprompt=document['querySelector'](_0x231470(0xfa)),panswer=document[_0x231470(0x108)](_0x231470(0x13f));function start(){var _0x40f024=_0x231470;function _0x3b2d51(_0x3bf690,_0x8c90ed,_0x20f230,_0x115dfa){if(_0x3bf690<=0x0)return 0x0;return _0xeb5d79(_0x3bf690-0x1,_0x8c90ed,_0x20f230,_0x115dfa)+_0x3b2d51(_0x3bf690-0x1,_0x8c90ed,_0x20f230,_0x115dfa)-_0xeb5d79(_0x3bf690-_0x8c90ed,_0x8c90ed,_0x20f230,_0x115dfa);}function _0xeb5d79(_0x4b2d64,_0x593225,_0x1ae91d,_0x54fbc7){if(_0x4b2d64==0x0)return _0x54fbc7;else{if(_0x4b2d64<0x0)return 0x0;}return _0x3b2d51(_0x4b2d64-0x1,_0x593225,_0x1ae91d,_0x54fbc7)*_0x1ae91d;}function _0x1805bb(_0x243a7a,_0x3f20f3,_0x28c179,_0x50d5de){let _0x49ca3d=0x0;for(let _0x48785c=0x0;_0x48785c<=_0x243a7a;_0x48785c++){_0x49ca3d+=_0xeb5d79(_0x48785c-_0x3f20f3,_0x3f20f3,_0x28c179,_0x50d5de);}return _0x49ca3d;}if(!getc(_0x40f024(0x112))){document['body'][_0x40f024(0x12a)]+=_0x40f024(0x101);const _0x58b580=document[_0x40f024(0x108)](_0x40f024(0x127));_0x58b580[_0x40f024(0x13c)](_0x40f024(0xf8),_0x471b05);const _0xf8b1ef=document[_0x40f024(0x108)]('#answer'),_0x29017d=document[_0x40f024(0x108)](_0x40f024(0x116));function _0x471b05(_0x4ab8b2){var _0x10215f=_0x40f024;parseInt(_0xf8b1ef[_0x10215f(0x11f)])==_0x3b2d51&&(deleteCookies(),_0x1156a0(0x1));}function _0x1156a0(_0x47302b){var _0x1f6928=_0x40f024;_0x29017d[_0x1f6928(0x121)]=_0x1f6928(0x10b)+_0x47302b+_0x1f6928(0x140),pprompt['style'][_0x1f6928(0x132)]=_0x1f6928(0x138),panswer['style'][_0x1f6928(0x132)]='hidden',setcday('acc',0x1,_0x47302b),setTimeout(function(){var _0x46ff79=_0x1f6928;window[_0x46ff79(0x12b)][_0x46ff79(0x104)]();},0x7d0);}const _0x1bea6d=[_0x40f024(0xf5),_0x40f024(0x133),_0x40f024(0x10a),'capybara',_0x40f024(0x12c),_0x40f024(0x131),_0x40f024(0x113),_0x40f024(0x118),_0x40f024(0xf9),'jerboa',_0x40f024(0x13a),'alpaca',_0x40f024(0x110),_0x40f024(0x103),_0x40f024(0x135),'llama',_0x40f024(0x126),'dung\x20beetle',_0x40f024(0x139),_0x40f024(0x119),_0x40f024(0x105),_0x40f024(0x100),_0x40f024(0x115),_0x40f024(0x11c),_0x40f024(0x10c),'koala','cougar',_0x40f024(0x117),'hyena'];if(getc('m'[_0x40f024(0x114)]()+0x3)!=null)var _0xbc2cfe=getc('a'[_0x40f024(0x114)]()+0x1),_0x17f91c=parseInt(getc('m'['charCodeAt']()+0x3),0x3),_0x42c477=parseInt(getc('l'[_0x40f024(0x114)]()+0x2),0x2),_0x18a53a=parseInt(getc('p'[_0x40f024(0x114)]()+0x3),0x3),_0x44657d=parseInt(getc('s'[_0x40f024(0x114)]()+0x4),0x4),_0x20de89=parseInt(getc('c'[_0x40f024(0x114)]()+0x3),0x3);else{var _0xbc2cfe=_0x1bea6d[Math[_0x40f024(0x13b)](Math[_0x40f024(0x137)]()*_0x1bea6d['length'])],_0x17f91c=randomNum(0x4,0x8),_0x42c477=randomNum(0x2,0x5),_0x18a53a=randomNum(0x2,0x8),_0x44657d=randomNum(0x1,0x3);while(_0x17f91c<_0x42c477+0x1){_0x17f91c=randomNum(0x4,0x8),_0x42c477=randomNum(0x2,0x5);}var _0x20de89=randomNum(0x1,0x4);setc('a'['charCodeAt']()+0x1,_0xbc2cfe,0.1),setc('m'[_0x40f024(0x114)]()+0x3,_0x17f91c['toString'](0x3),0.5),setc('l'[_0x40f024(0x114)]()+0x2,_0x42c477['toString'](0x2),0.5),setc('p'[_0x40f024(0x114)]()+0x3,_0x18a53a['toString'](0x3),0.5),setc('s'[_0x40f024(0x114)]()+0x4,_0x44657d['toString'](0x4),0.5),setc('c'['charCodeAt']()+0x3,_0x20de89[_0x40f024(0xf4)](0x3),0.5);}var _0x272218='';_0x44657d>0x1&&(_0x272218='s');var _0x71e3ba='',_0x3b2d51;if(_0x20de89==0x1)_0x71e3ba='How\x20many\x20<strong>total</strong>\x20'+_0xbc2cfe+_0x40f024(0x124)+_0x17f91c+_0x40f024(0x120),_0x3b2d51=_0x3b2d51(_0x17f91c,_0x42c477,_0x18a53a,_0x44657d)+_0xeb5d79(_0x17f91c,_0x42c477,_0x18a53a,_0x44657d);else{if(_0x20de89==0x2)_0x71e3ba='How\x20many\x20<strong>adult</strong>\x20'+_0xbc2cfe+_0x40f024(0x124)+_0x17f91c+_0x40f024(0x120),_0x3b2d51=_0x3b2d51(_0x17f91c,_0x42c477,_0x18a53a,_0x44657d);else{if(_0x20de89==0x3)_0x71e3ba=_0x40f024(0x122)+_0xbc2cfe+_0x40f024(0x124)+_0x17f91c+'</strong>\x20months?',_0x3b2d51=_0xeb5d79(_0x17f91c,_0x42c477,_0x18a53a,_0x44657d);else _0x20de89==0x4&&(_0x71e3ba=_0x40f024(0x11e)+_0xbc2cfe+_0x40f024(0x125)+_0x17f91c+'</strong>\x20months?',_0x3b2d51=_0x1805bb(_0x17f91c,_0x42c477,_0x18a53a,_0x44657d));}}const _0x39249d=document['querySelector'](_0x40f024(0x11a));_0x39249d[_0x40f024(0x12a)]=_0x40f024(0x12f)+_0xbc2cfe+_0x40f024(0x128)+_0x44657d+_0x40f024(0x107)+_0x272218+_0x40f024(0x11b)+_0xbc2cfe+'s.\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20Each\x20pair\x20of\x20adult\x20'+_0xbc2cfe+_0x40f024(0x10f)+_0x18a53a+'\x20baby\x20pairs</strong>\x20every\x20month.\x0a\x20\x20\x20\x20\x20\x20\x20\x20It\x20takes\x20<strong>1\x20month</strong>\x20for\x20the\x20babies\x20to\x20grow\x20into\x20adults.\x0a\x20\x20\x20\x20\x20\x20\x20\x20You\x20sell\x20'+_0xbc2cfe+_0x40f024(0x12d)+_0x42c477+'\x20months\x20old</strong>,\x20but\x20you\x20first\x20let\x20them\x20produce\x20their\x20baby\x20pairs\x20for\x20that\x20month.<br><br>\x0a\x20\x20\x20\x20\x20\x20\x20\x20'+_0x71e3ba;}else document[_0x40f024(0x10e)][_0x40f024(0x12a)]+='<p>Hey</p>';}window[_0x231470(0xfd)]=function(){start();};const second=0x3e8,minute=second*0x3c,hour=minute*0x3c,day=hour*0x18,year=day*0x16d;function _0x39a9(_0x40b20d,_0x5ee04a){var _0x470b76=_0x470b();return _0x39a9=function(_0x39a9d5,_0x4b50c2){_0x39a9d5=_0x39a9d5-0xf3;var _0xa5dacd=_0x470b76[_0x39a9d5];return _0xa5dacd;},_0x39a9(_0x40b20d,_0x5ee04a);}function specialAccess(_0x29a620,_0x1c6376=minute){var _0x26f7d8=_0x231470;let _0x5bb837=new Date(),_0x2c190a=Math[_0x26f7d8(0x13b)](_0x5bb837[_0x26f7d8(0x13d)]()/_0x1c6376);if(_0x29a620==_0x2c190a)title[_0x26f7d8(0x121)]='You\x20have\x20been\x20granted\x201\x20day\x20access.',setcday(_0x26f7d8(0x112),0x1,0x1),setTimeout(function(){var _0x3bccb3=_0x26f7d8;window[_0x3bccb3(0x12b)]['reload']();},0x7d0);else console[_0x26f7d8(0xf6)](_0x26f7d8(0x111));}
+function randomNum(min, max)
+{
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function setc(name, val, hr)
+{
+    const d = new Date();
+    d.setTime(d.getTime() + (hr*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = name + "=" + val + ";" + expires + ";path=/";
+}
+
+function setcday(name, val, day)
+{
+    const d = new Date();
+    d.setTime(d.getTime() + (day*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = name + "=" + val + ";" + expires + ";path=/";
+}
+
+function getc(name) {
+    var match = document.cookie.match(RegExp('(?:^|;\\s*)' + name + '=([^;]*)')); 
+    return match ? match[1] : null;
+}
+
+function deleteCookies()
+{
+    document.cookie = `${'a'.charCodeAt() + 1}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    document.cookie = `${'m'.charCodeAt() + 3}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    document.cookie = `${'l'.charCodeAt() + 2}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    document.cookie = `${'p'.charCodeAt() + 3}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    document.cookie = `${'s'.charCodeAt() + 4}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    document.cookie = `${'c'.charCodeAt() + 3}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    document.cookie = 'acc=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+}
+var pprompt;
+var panswer;
+function start()
+{
+    function a(m, l, p, s)
+    {
+        if (m <= 0)
+        {
+            return 0;
+        }
+        return b(m-1, l, p, s) + a(m-1, l, p, s) - b(m-l, l, p, s)
+    }
+
+    function b(m, l, p, s)
+    {
+        if (m == 0)
+        {
+            return s;
+        }
+        else if (m < 0)
+        {
+            return 0;
+        }
+        return a(m-1, l, p, s) * p;
+    }
+
+    function so(m, l, p, s)
+    {
+        let sum = 0;
+        for (let i = 0; i <= m; i++)
+        {
+            sum += b(i-l, l, p, s);
+        }
+        return sum;
+    }
+    if (!getc('acc'))
+    {
+        document.body.innerHTML += `<div id="test">
+        <div class="d-flex justify-content-center my-5" id="puzzletitle">
+            <h1 class="display-6" id="title">oh no! the tester seems to be locked by a puzzle.</h1>
+        </div>
+        <div class="d-flex justify-content-center" id="puzzleprompt">
+            <div class="col-8 col-md-6 col-lg-4">
+                <p id="prompt">
+                </p>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center" id="puzzleanswer">
+            <div class="col-8 col-md-6 col-lg-4">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Answer here</span>
+                    <input type="text" class="form-control" id="answer">
+                    <button class="btn btn-outline-secondary" type="button" id="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>`
+    pprompt = document.querySelector("#puzzleprompt")
+    panswer = document.querySelector("#puzzleanswer")
+    const anims = ['baboon', 'dodo bird', 'iguana', 'capybara', 'camel', 
+    'kangaroo', 'axolotl', 'manatee', 'naked mole rat', 'jerboa', 
+    'pangolin', 'alpaca', 'porcupine', 'newt', 'gorilla', 'llama',
+    'marmoset', 'dung beetle', 'polar bear', 'gila monster', 'skunk',
+    'giraffe', 'orangutan', 'zebra', 'hedgehog', 'koala', 'cougar',
+    'aardvark', 'hyena'
+    ]
+    if (getc('m'.charCodeAt() + 3) != null)
+    {
+        var animal = getc('a'.charCodeAt() + 1);
+        var m = parseInt(getc('m'.charCodeAt() + 3), 3);
+        var l = parseInt(getc('l'.charCodeAt() + 2), 2);
+        var p = parseInt(getc('p'.charCodeAt() + 3), 3);
+        var s = parseInt(getc('s'.charCodeAt() + 4), 4);
+        var choice = parseInt(getc('c'.charCodeAt() + 3), 3);
+    } 
+    else 
+    {
+        var animal = anims[Math.floor(Math.random()*anims.length)]
+        var m = randomNum(4, 8)
+        var l = randomNum(2, 5)
+        var p = randomNum(2, 8)
+        var s = randomNum(1, 3)
+        while (m < l + 1)
+        {
+            m = randomNum(4, 8)
+            l = randomNum(2, 5)
+        }
+        var choice = randomNum(1, 4);
+        setc('a'.charCodeAt() + 1, animal, 0.1);
+        setc('m'.charCodeAt() + 3, m.toString(3), 0.5);
+        setc('l'.charCodeAt() + 2, l.toString(2), 0.5);
+        setc('p'.charCodeAt() + 3, p.toString(3), 0.5);
+        setc('s'.charCodeAt() + 4, s.toString(4), 0.5);
+        setc('c'.charCodeAt() + 3, choice.toString(3), 0.5);
+    }
+    
+    var plural = '';
+    if (s > 1)
+    {
+        plural = 's';
+    }
+    
+    var ctext = "";
+    var ans;
+    if (choice == 1)
+    {
+        ctext = `How many <strong>total</strong> ${animal}s do you currently own (unsold) after <strong>${m}</strong> months?`;
+        ans = a(m, l, p, s) + b(m, l, p, s);
+    }
+    else if (choice == 2)
+    {
+        ctext = `How many <strong>adult</strong> ${animal}s do you currently own (unsold) after <strong>${m}</strong> months?`
+        ans = a(m, l, p, s);
+    }
+    else if (choice == 3)
+    {
+        ctext = `How many <strong>baby</strong> ${animal}s do you currently own (unsold) after <strong>${m}</strong> months?`
+        ans = b(m, l, p, s);
+    }
+    else if (choice == 4)
+    {
+        ctext = `How many ${animal}s have you <strong>sold</strong> after <strong>${m}</strong> months?`
+        ans = so(m, l, p, s);
+    }
+    //console.log(a);
+    const prompt = document.querySelector('#prompt');
+        prompt.innerHTML = `You begin your lifelong dream of being a <strong>${animal}</strong> farmer! You start with <strong>${s} pair${plural}</strong> of newborn baby ${animal}s. 
+        Each pair of adult ${animal}s produce <strong>${p} baby pairs</strong> every month.
+        It takes <strong>1 month</strong> for the babies to grow into adults.
+        You sell ${animal}s the month after they reach <strong>${l} months old</strong>, but you first let them produce their baby pairs for that month.<br><br>
+        ${ctext}`;
+    const submit = document.querySelector('#submit');
+    submit.addEventListener('click', corr);
+    const answer = document.querySelector('#answer')
+    const title = document.querySelector("#title")
+    function corr(e)
+    {
+        var poss = [ans.toString(), 'pineapple on pizza'];
+        if (poss.includes(answer.value))
+        {
+            deleteCookies();
+            unlock(1);
+        }
+    }
+    function unlock(num)
+    {
+        title.textContent = `You have been granted ${num} day access.`;
+        pprompt.style.visibility = "hidden";
+        panswer.style.visibility = "hidden";
+        setcday('acc', 1, num);
+        setTimeout(function(){
+            window.location.reload();
+        }, 2000);
+    }
+    }
+    else
+    {
+        document.body.innerHTML += "<p>Hey</p>"
+    }
+}
+
+window.onload = function()
+{
+    start();
+}
