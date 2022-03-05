@@ -53,11 +53,12 @@ function updateSections(value)
     sectionsColor.className = classSettings;
     sectionsGrade.textContent = `${value}%`;
 }
-let start = 0
+let start = 100
 updateSections(start.toFixed(2));
 function sumSections()
 {
     let total = 0;
+    let totalWeights = 100;
     if (Object.keys(sections.weights).length != 0)
     {
         for (const property in sections.weights)
@@ -70,13 +71,14 @@ function sumSections()
             {
                 total += sections.weights[property];
             }
+            totalWeights -= sections.weights[property];
         }
+        total += totalWeights;
     }
     else
     {
-        total = 0;
+        total = 100;
     }
-    console.log(total);
     updateSections(total.toFixed(2))
 }
 
