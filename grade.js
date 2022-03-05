@@ -205,6 +205,7 @@ function createSection()
     function deleteSection()
     {
         delete sections.nums[section.sID];
+        sumSections()
         newSection.remove();
     }
 
@@ -291,6 +292,7 @@ function createSection()
             newAssignment.remove();
         })
         section.assignmentCount++;
+        sumSections()
         M.updateTextFields();
     })
 
