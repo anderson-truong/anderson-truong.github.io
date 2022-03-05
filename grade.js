@@ -104,11 +104,11 @@ function createSection()
             </h5>
         </div>
         <div class="input-field col s4">
-            <input placeholder="ex. Exams" type="text" class="validate" id="section-${section.sID}-label">
+            <input placeholder="Exams" type="text" class="validate" id="section-${section.sID}-label">
             <label>Section</label>
         </div>
         <div class="input-field col s3">
-            <input placeholder="ex. 15" type="number" step=any class="validate" id="section-${section.sID}-weight">
+            <input placeholder="15" type="number" step=any class="validate" id="section-${section.sID}-weight">
             <label>Percent</label>
         </div>
         <div class="col s1 center-align">
@@ -256,11 +256,11 @@ function createSection()
         <label>Assignment</label>
     </div>
     <div class="input-field col s2">
-        <input placeholder="ex. 30" type="number" step="any" class="validate" id="section-${section.sID}-assignment-${newAssignment.aID}-num">
+        <input placeholder="30" type="number" step="any" class="validate" id="section-${section.sID}-assignment-${newAssignment.aID}-num">
         <label>Points</label>
     </div>
     <div class="input-field col s2">
-        <input placeholder="ex. 50" type="number" step="any" class="validate" id="section-${section.sID}-assignment-${newAssignment.aID}-den">
+        <input placeholder="50" type="number" step="any" class="validate" id="section-${section.sID}-assignment-${newAssignment.aID}-den">
         <label>Max</label>
     </div>
     <div class="col s1 center-align">
