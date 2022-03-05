@@ -2,9 +2,10 @@ const sections = document.querySelector('#sections');
 const sectionsGrade = document.querySelector('#sections-grade');
 const sectionsColor = document.querySelector('#sections-color');
 sections.nums = {};
+sections.weights = {};
 function updateSections(value)
 {
-    let classSettings = 'col s6 m4 offset-s3 offset-m4 card-panel ';
+    let classSettings = 'col s8 m6 offset-s2 offset-m3 card-panel ';
     if (value >= 95)
     {
         classSettings += 'green darken-1'
@@ -49,20 +50,34 @@ function updateSections(value)
     {
         classSettings += 'black'
     }
-    sectionsGrade.className = classSettings;
+    sectionsColor.className = classSettings;
     sectionsGrade.textContent = `${value}%`;
 }
-
+let start = 0
+updateSections(start.toFixed(2));
 function sumSections()
 {
-    let nums = 0;
-    let dens = 0;
-    for (const property in section.nums)
+    let total = 0;
+    if (Object.keys(sections.weights).length != 0)
     {
-        nums += section.nums[property];
-        dens += section.dens[property];
+        for (const property in sections.weights)
+        {
+            if (sections.nums[property])
+            {
+                total += sections.nums[property] * (sections.weights[property] / 100);
+            }
+            else
+            {
+                total += sections.weights[property];
+            }
+        }
     }
-    updateSectionGrade(Math.trunc(100*nums / dens))
+    else
+    {
+        total = 0;
+    }
+    console.log(total);
+    updateSections(total.toFixed(2))
 }
 
 const addSectionButton = document.querySelector('#addSection');
@@ -114,6 +129,20 @@ function createSection()
 
     const sectionGrade = document.querySelector(`#section-${section.sID}-grade`)
     const sectionColor = document.querySelector(`#section-${section.sID}-color`)
+    const sectionWeight = document.querySelector(`#section-${section.sID}-weight`)
+    sectionWeight.addEventListener('input', sumWeights);
+    function sumWeights()
+    {
+        if (sectionWeight.value)
+        {
+            sections.weights[section.sID] = parseFloat(sectionWeight.value);
+        }
+        else
+        {
+            delete sections.weights[section.sID];
+        }
+        sumSections();
+    }
     function updateSectionGrade(value)
     {
         let classSettings = 'grade-num col s3 m2 card-panel center-align ';
@@ -163,18 +192,19 @@ function createSection()
         }
         sectionColor.className = classSettings;
         sections.nums[section.sID] = value;
-        console.log(sections.nums);
         sectionGrade.textContent = `${Math.trunc(value)}%`;
+        sumSections()
     }
-    const sectionWeight = document.querySelector(`#section-${section.sID}-weight`)
 
     // Delete Section
     const newSection = document.querySelector(`#section-${section.sID}`);
     const deleteButton = document.querySelector(`#section-${section.sID}-delete`);
-    deleteButton.addEventListener('click', function(e){
+    deleteButton.addEventListener('click', deleteSection);
+    function deleteSection()
+    {
         delete sections.nums[section.sID];
         newSection.remove();
-    });
+    }
 
     // Dropdown
     const drop = document.querySelector(`#section-${section.sID}-dropdown`);
