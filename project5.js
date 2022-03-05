@@ -116,7 +116,6 @@ function regenerate()
 }
 
 const clipboardPrompt = document.querySelector('#copied');
-document.querySelector("#generateCode").onclick = regenerate;
 document.querySelector("#copyClipboard").onclick = function(){
     navigator.clipboard.writeText(output.textContent);
     clipboardPrompt.style.opacity = "1";
