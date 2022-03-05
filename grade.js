@@ -63,8 +63,9 @@ function sumSections()
     {
         for (const property in sections.weights)
         {
-            if (sections.nums[property])
+            if (sections.nums[property] || sections.nums[property] == 0)
             {
+                console.log(sections.weights[property], sections.nums[property])
                 total += sections.nums[property] * (sections.weights[property] / 100);
             }
             else
@@ -73,6 +74,8 @@ function sumSections()
             }
             totalWeights -= sections.weights[property];
         }
+        if (totalWeights < 0)
+            totalWeights = 0;
         total += totalWeights;
     }
     else
@@ -195,7 +198,7 @@ function createSection()
         sectionColor.className = classSettings;
         sections.nums[section.sID] = value;
         sectionGrade.textContent = `${Math.trunc(value)}%`;
-        sumSections()
+        sumSections();
     }
 
     // Delete Section
@@ -205,7 +208,8 @@ function createSection()
     function deleteSection()
     {
         delete sections.nums[section.sID];
-        sumSections()
+        sumWeights();
+        sumSections();
         newSection.remove();
     }
 
@@ -237,6 +241,8 @@ function createSection()
             nums += section.nums[property];
             dens += section.dens[property];
         }
+        if (!dens && !nums)
+            dens = 1;
         updateSectionGrade(100*nums / dens)
     }
 
@@ -276,6 +282,7 @@ function createSection()
         denominator.addEventListener('input', changeRatio)
         function changeRatio()
         {
+            
             if (numerator.value && denominator.value)
             {
                 section.nums[newAssignment.aID] = parseFloat(numerator.value);
@@ -289,6 +296,8 @@ function createSection()
         newAssignmentDeleteButton.addEventListener('click', function(e){
             delete section.nums[newAssignment.aID];
             delete section.dens[newAssignment.aID];
+            sumAssignments();
+            sumSections();
             newAssignment.remove();
         })
         section.assignmentCount++;

@@ -111,7 +111,7 @@ var text = `int main()
 window.onload = regenerate;
 function regenerate()
 {
-    //output.textContent = text;
+    output.textContent = text;
     Prism.highlightAll();
 }
 
