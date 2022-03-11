@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <title>Challenges</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism-tomorrow.min.css" integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body>
+        
+        <div class="container" style="margin-bottom: 15rem;">
+            <div class="row center-align">
+                <h1>CS31 Final Review Challenges</h1>
+                <p>If you can do these, you can probably ace the final.</p>
+            </div>
+            <div class="row center-align">
+                <h2>Challenge 1</h2>
+                <h4>Dynamic Allocation, Pointers, Characters, Loops</h4>
+                <div class="col s4 offset-s4">
+                    <p><strong>Constraints:</strong> You may not use any libraries.</p>
+                    <p><strong>Task:</strong> Dynamically allocate an array of character pointers of length 20 (meaning the array has been allocated space for 20 elements) called:</p>
+                    <code class="language-cpp">charPointers</code>
+                    <p>Then, create a for loop to assign each pointer to characters starting from ASCII code 79 and continuing backwards but skipping over every other character.</p>
+                    <p>For example, if your array size is 5 and you start from ASCII code 100 or 'd', your dereferenced array would be:</p><code class="language-cpp">{ 'd', 'b', '`', '^', '\' }</code>
+                    <p>resembling the ASCII codes:</p>
+                    <code class="language-cpp">{ 100, 98, 96, 94, 92 }</code>
+                </div>
+            </div>
+            <div class="row center-align">
+                <h2>Challenge 2</h2>
+                <h4>Vectors, Functions, Loops</h4>
+                <div class="col s4 offset-s4">
+                    <p><strong>Constraints:</strong> You will use the <code class="language-cpp">&lt;vector&gt;</code> library</p>
+                    <p><strong>Task:</strong> Create a function that returns a <code class="language-cpp">std::vector</code> called <code class="language-cpp">multiples()</code></p>
+                    <p>This function takes in two parameters:</p><code class="language-cpp">int multiple</code>, <code class="language-cpp">int max</code>
+                    <p>It will return a <code class="language-cpp">std::vector</code> containing all the multiples of the <code class="language-cpp">multiple</code> parameter starting from 1 until the <code class="language-cpp">max</code> parameter (inclusive).</p>
+                    <p>For example,</p>
+                    <code class="language-cpp">multiples(3, 30)</code>
+                    <p>will return a <code class="language-cpp">std::vector</code>: </p>
+                    <code class="language-cpp">{ 3, 6, 9, 12, 15, 18, 21, 24, 27, 30}</code>
+                </div>
+            </div>
+            <div class="row center-align">
+                <h2>Challenge 3</h2>
+                <h4>Enumerations, Classes,<br>Constructor Overloading</h4>
+                <div class="col s4 offset-s4">
+                    <p><strong>Constraints:</strong> You will not use any library</p>
+                    <p><strong>Task:</strong> You will be creating one class and two scoped enumerations.</p>
+                    <p><strong>Create a scoped enumeration (enum class/enum struct) called <code class="language-cpp">Armor</code></strong></p>
+                    <p>This type will contain the possible values<p>
+                        <code class="language-cpp">Diamond</code>
+                        <code class="language-cpp">Gold</code>
+                        <code class="language-cpp">Iron</code>
+                        <code class="language-cpp">Leather</code>
+                        <p>(no Netherite sorry)</p>
+                    <br>
+                    <p><strong>Create a scoped enumeration called <code class="language-cpp">Item</code></strong></p>
+                    <p>This type will contain the possible values<p>
+                        <code class="language-cpp">Sword</code>
+                        <code class="language-cpp">Axe</code>
+                        <code class="language-cpp">Stick</code>
+                        <code class="language-cpp">Carrot</code>
+                        <p></p>
+                    <br><br>
+                    <p><strong>Create a class called <code class="language-cpp">MinecraftZombie</code></strong></p>
+                    <p>This class will have private members</p>
+                        <code class="language-cpp">double health</code><br>
+                        <code class="language-cpp">double damage</code><br>
+                        <code class="language-cpp">Armor armor</code><br>
+                        <code class="language-cpp">Item item</code><br>
+                    <p>There will be a default constructor that defaults the private members to:</p>
+                        <code class="language-cpp">health = 20.0</code><br>
+                        <code class="language-cpp">damage = 3.0</code><br>
+                        <code class="language-cpp">armor = Armor::Leather</code><br>
+                        <code class="language-cpp">item = Item::Carrot</code><br>
+                    <p>There will be an overloaded constructor that allows you to initialize all 4 members.</p>
+                    <br><br>
+                    <p><strong>This class will have public accessors/mutators:</strong></p>
+                        <code class="language-cpp">double getHealth()</code><br>
+                        <p>Returns health.</p>
+                        <code class="language-cpp">double getDamage()</code><br>
+                        <p>Returns damage.</p>
+                        <code class="language-cpp">Armor getArmor()</code><br>
+                        <p>Returns armor.</p>
+                        <code class="language-cpp">Item getItem()</code><br>
+                        <p>Returns item.</p>
+                        <code class="language-cpp">void setHealth(double newHealth)</code><br>
+                        <p>Modifies health. If newHealth is less than 0, don't change health.</p>
+                        <code class="language-cpp">void setDamage(double newDamage)</code><br>
+                        <p>Modifies damage. If newDamage is less than 0, don't change damage.</p>
+                        <code class="language-cpp">void setArmor(Armor newArmor)</code><br>
+                        <p>Modifies armor.</p>
+                        <code class="language-cpp">void setItem(Item newItem)</code><br>
+                        <p>Modifies item.</p>
+                    <br><br>
+                    <p><strong>This class will also have these public methods:</strong></p>
+                        <code class="language-cpp">double doDamage()</code><br>
+                        <p>Returns damage times a multiplier based on item.</p>
+                        <p>If health is less than or equal to zero, cannot do damage.</p>
+                        <p>If item is Axe, return 2.5x damage</p>
+                        <p>If item is Sword, return 2x damage</p>
+                        <p>If item is Stick, return 1.2x damage</p>
+                        <p>If item is Carrot, return 0.5x damage</p>
+                        <code class="language-cpp">void takeDamage(double damageTaken)</code><br>
+                        <p>Reduces health by damageTaken times multiplier based on armor.</p>
+                        <p>If health is less than or equal to zero, cannot take damage.</p>
+                        <p>If armor is Diamond, take 0.1x damage</p>
+                        <p>If armor is Gold, take 0.25 damage</p>
+                        <p>If armor is Iron, take 0.5x damage</p>
+                        <p>If item is Leather, take 0.9x damage</p>
+                </div>
+            </div>
+        </div>
+
+        <script src="" async defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js" integrity="sha512-NC2WFBzw/SdbWrzG0C+sg3iv1OITcQKsUitDcYKfOp9vxe92zpNlRc5Ad3q81kAp8Ff/fDV8pZQxdCCeyFdgLw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-GP4x8UWxWyh4BMbyJGOGneiTbkrWEF5izsVJByzVLodP8CuJH/n936+yQDMJJrOPUHLgyPbLiGw2rXmdvGdXHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+    </body>
+</html>
