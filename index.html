@@ -1,200 +1,53 @@
 <!DOCTYPE html>
-
 <html>
-  <head>
-    <title>anderson's stuff</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v4.2.0/dist/aframe-extras.min.js"></script>
-    <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
-  </head>
-  <body>
-    <p>
-      
-    </p>
-    <a-scene id="scene" background="color: #191716"><!--inspector-plugin-recast-->
-        <a-entity id="player" movement-controls="constrainToNavMesh: true; speed: 0.2" rotation="0 -90 0" position="-2 0.1 -2">
-            <a-entity id="camera" camera position="0 1 0" look-controls="pointerLockEnabled: true">
-              <a-entity cursor
-            position="0 0 -0.1"
-            geometry="primitive: ring; radiusInner: 0.001; radiusOuter: 0.002"
-            material="color: #E5E7E6; shader: flat"></a-entity>
-            <!--a-entity text="font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; value: anderson's club penguin igloo; color: #F2F3D9; align: center; width: 0.25;"  rotation="0 0 0" position="0 0.075 -0.1"></a-entity-->
-            </a-entity>
-        </a-entity>
-        <a-entity class="navmesh" gltf-model="navmesh.gltf" position="0 0 0" scale="1 1 1" nav-mesh visible="false"></a-entity>
-        <a-assets>
-          <a-asset-item id="totoro" src="totoro.glb"></a-asset-item>
-            <a-asset-item id="tileb" src="gltf/tileBrickB_small.gltf.glb"></a-asset-item>
-            <a-asset-item id="wallsingle" src="gltf/wallSingle.gltf.glb"></a-asset-item>
-            <a-asset-item id="wallcorner" src="gltf/wallCorner.gltf.glb"></a-asset-item>
-            <a-asset-item id="tableMedium" src="gltf/tableMedium.gltf.glb"></a-asset-item>
-            <a-asset-item id="bookcaseWide_broken" src="gltf/bookcaseWide_broken.gltf.glb"></a-asset-item>
-            <a-asset-item id="bookOpenA" src="gltf/bookOpenA.gltf.glb"></a-asset-item>
-            <a-asset-item id="bookOpenB" src="gltf/bookOpenB.gltf.glb"></a-asset-item>
-            <a-asset-item id="bookB" src="gltf/bookB.gltf.glb"></a-asset-item>
-            <a-asset-item id="bookC" src="gltf/bookC.gltf.glb"></a-asset-item>
-            <a-asset-item id="bookD" src="gltf/bookD.gltf.glb"></a-asset-item>
-            <a-asset-item id="bookE" src="gltf/bookE.gltf.glb"></a-asset-item>
-
-            <a-asset-item id="coinsLarge" src="gltf/coinsLarge.gltf.glb"></a-asset-item>
-            <a-asset-item id="coin" src="gltf/coin.gltf.glb"></a-asset-item>
-            <a-asset-item id="dagger_rare" src="gltf/dagger_rare.gltf.glb"></a-asset-item>
-            <a-asset-item id="axe_rare" src="gltf/axe_rare.gltf.glb"></a-asset-item>
-            <a-asset-item id="sword_rare" src="gltf/sword_rare.gltf.glb"></a-asset-item>
-            <a-asset-item id="lootSackA" src="gltf/lootSackA.gltf.glb"></a-asset-item>
-
-            <a-asset-item id="diglett" src="poke/diglett.glb"></a-asset-item>
-
-            <a-asset-item id="toilet" src="household/Toilet.gltf"></a-asset-item>
-            <a-asset-item id="car" src="household/car.gltf"></a-asset-item>
-          </a-assets>
-          <!--a-entity gltf-model="#tileb" position="-10 0 -20"></a-entity-->
-          <a-entity gltf-model="#tableMedium" shadow="receive: true; cast: true" rotation="0 0 0" position="0 0 -4"></a-entity>
-
-          <a-entity gltf-model="#bookcaseWide_broken" shadow="cast: true; receive: true;" rotation="0 90 0" position="6.5 0 -4"></a-entity>
-
-          <a-entity text="font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; value: project 2 tester; color: white; align: center; width: 1;"  rotation="-95 -135 90" position="6.4 0.895 -3.98"></a-entity>
-          <a-entity id="tester2-link" gltf-model="#bookD" shadow="receive: false; cast: true" rotation="95 45 0" position="6.3 0.82 -3.88"></a-entity>
-          <a-entity text="font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; value: project 3 tester; color: white; align: center; width: 1;"  rotation="-95 180 90" position="6.45 0.88 -3.49"></a-entity>
-          <a-entity id="tester3-link" gltf-model="#bookB" shadow="receive: false; cast: true" rotation="95 0 0" position="6.3 0.8 -3.5"></a-entity>
-          <a-entity text="font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; value: project 4 tester; color: white; align: center; width: 1;"  rotation="-95 -210 90" position="6.42 0.945 -4.48"></a-entity>
-          <a-entity id="tester4-link" gltf-model="#bookE" shadow="receive: false; cast: true" rotation="95 -30 0" position="6.3 0.87 -4.55"></a-entity>
-
-          <a-entity text="font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; value: time to retire; color: #F3DE8A; align: center; width: 2;"  rotation="0 0 0" position="0 1 -3.8"></a-entity>
-          <!--a-entity gltf-model="#bookOpenA" shadow="receive: false; cast: true" rotation="45 0 0" position="0 1 -3.8"></a-entity-->
-          <a-entity text="font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; value: project 6 WIP; color: white; align: center; width: 1;"  rotation="-90 45 0" position="0.6 0.845 -4.3"></a-entity>
-          <a-entity id="" gltf-model="#bookC" shadow="receive: false; cast: true" rotation="90 135 0" position="0.7 0.77 -4.2"></a-entity>
-          <a-entity id="" gltf-model="#coinsLarge" shadow="receive: false; cast: true" rotation="0 0 0" position="0.7 0.69 -4" scale="0.2 0.2 0.2"></a-entity>
-          <a-entity id="" gltf-model="#dagger_rare" shadow="receive: false; cast: true" rotation="190 35 0" position="0.7 1 -3.6" scale="0.5 0.5 0.5"></a-entity>
-          <a-entity id="coinfile" gltf-model="#coin" shadow="receive: false; cast: true" rotation="90 0 0" position="-0.5 0.0 -3.5" scale="0.1 0.1 0.1"></a-entity>
-          <a-entity id="" gltf-model="#axe_rare" shadow="receive: false; cast: true" rotation="-10 -90 200" position="-1.05 0.58 -3.8" scale="1 1 1"></a-entity>
-          <a-entity id="" gltf-model="#lootSackA" shadow="receive: false; cast: true" rotation="0 0 0" position="-5.8 0 -5.8" scale="3 3 3"></a-entity>
-
-          <a-entity gltf-model="#diglett" shadow="receive: false" rotation="0 180 0" position="0 0 -6" scale="0.5 0.5 0.5"></a-entity>
-          <a-entity gltf-model="#diglett" shadow="receive: false" rotation="0 180 0" position="-0.9 0 -6.2" scale="0.3 0.3 0.3"></a-entity>
-          <a-entity gltf-model="#diglett" shadow="receive: false" rotation="0 180 0" position="1 0 -6.2" scale="0.4 0.4 0.4"></a-entity>
-
-          <a-entity>
-            <a-entity gltf-model="#totoro" shadow="receive: false" rotation="0 -90 0" position="12 0 0" scale="0.5 0.5 0.5"></a-entity>
-            <a-entity gltf-model="#toilet" shadow="receive: false" rotation="0 90 0" position="-10 10 15" scale="0.05 0.05 0.05"></a-entity>
-            <a-entity id="tester5-text" text="font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; value: how'd this end up here?; color: #F3DE8A; align: center; width: 2;"  rotation="-90 90 0" position="-5.4 3 16"></a-entity>
-            <a-entity id="tester5-link" gltf-model="#bookOpenB" shadow="receive: false; cast: true" rotation="0 -90 0" position="-5 3 16"></a-entity>
-            <a-entity id="" gltf-model="#sword_rare" shadow="receive: false; cast: true" rotation="180 0 0" position="4 30 -10" scale="40 40 40"></a-entity> 
-          </a-entity>
-          <a-entity gltf-model="#car" shadow="receive: false" rotation="0 180 0" position="-6 0 5" scale="1 1 1"></a-entity>
-          <!--a-plane position="0 0 -4" rotation="-90 0 0" width="40" height="40" color="#7BC8A4"></a-plane-->
-          <a-entity>
-            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 0 0" position="-4 0 -8"></a-entity>
-            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 180 0" position="-4 0 8"></a-entity>
-            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 90 0" position="-8 0 -4"></a-entity>
-            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 -90 0" position="8 0 -4"></a-entity>
-            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 0 0" position="0 0 -8"></a-entity>
-            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 180 0" position="0 0 8"></a-entity>
-            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 90 0" position="-8 0 0"></a-entity>
-            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 -90 0" position="8 0 0"></a-entity>
-            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 0 0" position="4 0 -8"></a-entity>
-            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 180 0" position="4 0 8"></a-entity>
-            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 90 0" position="-8 0 4"></a-entity>
-            <a-entity gltf-model="#wallsingle" shadow="cast: true; receive: true;" rotation="0 -90 0" position="8 0 4"></a-entity>
-            <a-entity gltf-model="#wallcorner" shadow="cast: true; receive: true;" rotation="0 90 0" position="-8 0 -8"></a-entity>
-            <a-entity gltf-model="#wallcorner" shadow="cast: true; receive: true;" rotation="0 180 0" position="-8 0 8"></a-entity>
-            <a-entity gltf-model="#wallcorner" shadow="cast: true; receive: true;" rotation="0 0 0" position="8 0 -8"></a-entity>
-            <a-entity gltf-model="#wallcorner" shadow="cast: true; receive: true;" rotation="0 -90 0" position="8 0 8"></a-entity>
-        </a-entity>
-        <a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-7 -1 -7"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-7 -1 -5"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-7 -1 -3"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-7 -1 -1"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-7 -1 1"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-7 -1 3"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-7 -1 5"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-7 -1 7"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-5 -1 -7"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-5 -1 -5"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-5 -1 -3"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-5 -1 -1"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-5 -1 1"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-5 -1 3"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-5 -1 5"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-5 -1 7"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-3 -1 -7"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-3 -1 -5"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-3 -1 -3"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-3 -1 -1"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-3 -1 1"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-3 -1 3"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-3 -1 5"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-3 -1 7"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-1 -1 -7"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-1 -1 -5"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-1 -1 -3"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-1 -1 -1"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-1 -1 1"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-1 -1 3"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-1 -1 5"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="-1 -1 7"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="1 -1 -7"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="1 -1 -5"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="1 -1 -3"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="1 -1 -1"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="1 -1 1"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="1 -1 3"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="1 -1 5"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="1 -1 7"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="3 -1 -7"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="3 -1 -5"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="3 -1 -3"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="3 -1 -1"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="3 -1 1"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="3 -1 3"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="3 -1 5"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="3 -1 7"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="5 -1 -7"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="5 -1 -5"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="5 -1 -3"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="5 -1 -1"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="5 -1 1"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="5 -1 3"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="5 -1 5"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="5 -1 7"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="7 -1 -7"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="7 -1 -5"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="7 -1 -3"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="7 -1 -1"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="7 -1 1"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="7 -1 3"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="7 -1 5"></a-entity>
-          <a-entity gltf-model="#tileb" shadow="receive: true" position="7 -1 7"></a-entity>
-      </a-entity>
-    </a-scene>
-    <script>
-      let tester3_link = document.querySelector('#tester3-link');
-      tester3_link.addEventListener('click', function (evt) {window.open('../project3');});
-      let tester4_link = document.querySelector('#tester4-link');
-      tester4_link.addEventListener('click', function (evt) {window.open('../project4');});
-      let tester5_link = document.querySelector('#tester5-link');
-      tester5_link.addEventListener('click', function (evt) {window.open('../project5');});
-      let tester2_link = document.querySelector('#tester2-link');
-      tester2_link.addEventListener('click', function (evt) {window.open('https://github.com/anderson-truong/CS31-Project-2-Automated-Testing');});
-      let coindown = document.querySelector('#coinfile');
-      coindown.addEventListener('click', function(evt) {window.open('../file.zip');});
-      
-      var player = document.querySelector('#player');
-      function fly()
-      {
-        player.removeAttribute('movement-controls');
-        player.setAttribute('movement-controls', "fly: true; speed: 0.5;")
-      }
-      function download(url) {
-        const a = document.createElement('a')
-        a.href = url
-        a.download = url.split('/').pop()
-        document.body.appendChild(a)
-        a.click()
-        document.body.removeChild(a)
-      }
-      </script>
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>anderson truong</title>
+        <link rel="icon" type="image/x-icon" href="fav.ico">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Poppins', sans-serif !important;
+                font-weight: 300;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col s6 offset-s3">
+                    <div class="cover" style="max-height: 200px; height: 200px;"></div>
+                    <h4 style="margin: 0 auto; font-weight: 400;">anderson truong</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6 offset-s3">
+                    <p class="flow-text" style="margin: 0 auto 1rem auto; font-size: 1.2rem;">electrical engineering student at UCLA</p>
+                    <div class="row valign-wrapper">
+                        <p class="valign-wrapper" style="margin: 0; font-size: 1rem;"><i class="material-icons" style="margin: 0 0.5rem 0 1rem;">email</i>andersonleetruong@gmail.com</p>
+                    </div>
+                    <div class="row">
+                        <div class="col s6">
+                            <h5>Projects</h5>
+                            <a href="https://docs.google.com/presentation/d/18UYCNa936pfoBPItUUpdlLkGp_p7ywXrrJhtFHfZ6EE/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Physical Therapy Classifier with STM SensorTile and EmbeddedML</a>
+                        </div>
+                        <div class="col s6">
+                            <h5>Research</h5>
+                            <a href="https://drive.google.com/file/d/1YCILKSq54iT6j6t4KtLIys-_dWb8n9_B/view?usp=sharing" target="_blank" rel="noopener noreferrer">Multi-layered Metasurfaces for Diffractive Neural Networks</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="" async defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
 </html>
