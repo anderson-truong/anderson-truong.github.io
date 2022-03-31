@@ -21,6 +21,7 @@ output.textContent = `#include <iostream>
 #include "Mesa.h"
 #include "Game.h"
 #include "History.h"
+using namespace std;
 
 class StreambufSwitcher
 {
