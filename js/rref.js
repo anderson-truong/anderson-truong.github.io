@@ -38,7 +38,7 @@ function simplify(r)
         return r;
     const divisor = r[leadingIndex];
     if (divisor != 0)
-        r = r.map(function(e) { return e / divisor })
+        r = r.map(function(e) { if (e != 0) return e / divisor; else return e })
     //console.log(r);
     return r;
 }
@@ -98,10 +98,11 @@ function sortLeadingOnes(array)
     }
     for (let row of array)
     {
-        let sum = 0;
+        let empty = true;
         for (let item of row)
-            sum += item;
-        if (sum == 0)
+            if (item != 0)
+                empty = false;
+        if (empty)
             newArray.push(row);
     }
     return newArray;
@@ -120,14 +121,29 @@ function basicSolve(matrix)
             subtract(output, currentRow, i);
         }
     }
+    return sortLeadingOnes(output);
+}
+
+function matrixToText(matrix)
+{
+    let output = "";
+    for (let row of matrix)
+    {
+        for (let col of row)
+            output += col + ' ';
+        output += '\n';
+    }
     return output;
 }
 
 //let input = "0 3 5 22.334 \n 0 0 0 0 \n 0 -6 76 168";
 
 let textInput = document.querySelector('#input')
-let input = textInput.textContent;
-matrix = readInMatrix(input);
-console.log(arrayCopy(matrix));
-let x = basicSolve(matrix);
-console.log(sortLeadingOnes(x));
+let output = document.querySelector('#output');
+textInput.addEventListener('input', function()
+{
+    let input = textInput.value;
+    matrix = readInMatrix(input);
+    let x = basicSolve(matrix);
+    output.textContent = matrixToText(x);
+})
