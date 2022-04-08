@@ -1,6 +1,17 @@
-let input = "-4 1 1 \n 11 -12 13 \n 0 1 0";
-let rows = input.split('\n');
-let matrix = [];
+function readInMatrix(input)
+{
+    let rows = input.split('\n');
+    let matrix = [];
+    for (let row of rows)
+    {
+        let correctRow = row.split(' ');
+        correctRow = correctRow.filter(col => col != '');
+        correctRow = correctRow.map(function(i){return parseFloat(i)})
+        if (correctRow.length != 0)
+            matrix.push(correctRow)
+    }
+    return matrix;
+}
 
 function arrayCopy(a)
 {
@@ -15,34 +26,23 @@ function arrayCopy(a)
     return output;
 }
 
-for (let row of rows)
-{
-    let correctRow = row.split(' ');
-    correctRow = correctRow.filter(col => col != '');
-    correctRow = correctRow.map(function(i){return parseFloat(i)})
-    if (correctRow.length != 0)
-        matrix.push(correctRow)
-}
-
 function simplify(r)
 {
-    let max = Math.max(...r);
-    let divisor = 2;
-    for (; divisor < max; divisor++)
+    let leadingIndex = 0;
+    for (;  leadingIndex < r.length; leadingIndex++)
     {
-        let divided = r.map(function(e){ return e % divisor })
-        if (divided.reduce((partialSum, a) => partialSum + a, 0) == 0)
-        {
+        if (r[leadingIndex] != 0)
             break;
-        }
     }
-    if (divisor != max)
-    {
-        let newRow = r.map(function(e) { return e / divisor })
-        return newRow;
-    }
+    if (leadingIndex == r.length)
+        return r;
+    const divisor = r[leadingIndex];
+    if (divisor != 0)
+        r = r.map(function(e) { return e / divisor })
+    //console.log(r);
     return r;
 }
+
 function subtract(arr, index, leading)
 {
     let ref = arr[index];
@@ -59,14 +59,75 @@ function subtract(arr, index, leading)
         }
     }
 }
-console.log(matrix);
-let b = arrayCopy(matrix);
-b[0] = simplify(b[0]);
-console.log(b);
-let c = arrayCopy(b);
-subtract(c, 0, 0);
-console.log(c);
-let d = arrayCopy(c);
-d[0] = simplify(d[0]);
-subtract(d, 1, 1);
-console.log(d);
+
+function leadingOneAt(row, index)
+{
+    if (row[index] == 0)
+        return false;
+    for (let i=0; i < index; i++)
+    {
+        if (row[i] != 0)
+            return false;
+    }
+    return true;
+}
+
+function rowWithLeadingOneAt(array, index)
+{
+    for (let i=0; i < array.length; i++)
+    {
+        if (leadingOneAt(array[i], index))
+            return i;
+    }
+    return -1;
+}
+
+function sortLeadingOnes(array)
+{
+    let newArray = [];
+    for (let i = 0; i < array.length; i++)
+    {
+        for (let row of array)
+        {
+            if (row[i] == 1)
+            {
+                newArray.push(row);
+                break;
+            }
+        }
+    }
+    for (let row of array)
+    {
+        let sum = 0;
+        for (let item of row)
+            sum += item;
+        if (sum == 0)
+            newArray.push(row);
+    }
+    return newArray;
+}
+
+function basicSolve(matrix)
+{
+    let output = arrayCopy(matrix);
+    //console.log(rowWithLeadingOneAt(matrix, 1));
+    for (let i = 0; i < output.length; i++)
+    {
+        let currentRow = rowWithLeadingOneAt(output, i);
+        if (currentRow != -1)
+        {
+            output[currentRow] = simplify(output[currentRow]);
+            subtract(output, currentRow, i);
+        }
+    }
+    return output;
+}
+
+//let input = "0 3 5 22.334 \n 0 0 0 0 \n 0 -6 76 168";
+
+let textInput = document.querySelector('#input')
+let input = textInput.textContent;
+matrix = readInMatrix(input);
+console.log(arrayCopy(matrix));
+let x = basicSolve(matrix);
+console.log(sortLeadingOnes(x));
