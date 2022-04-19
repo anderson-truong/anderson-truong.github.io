@@ -253,130 +253,191 @@ int main()
     }
     // subsequence
     {
-        Sequence t01, t02;
-        ItemType t01a[] = { 1, 2, 2, 3, 2, 3, 4, 5 };
-        ItemType t02a[] = { 2, 3, 4, 5 };
-        for (int i = 0; i < 8; i++)
-            t01.insert(i, t01a[i]);
-        for (int i = 0; i < 4; i++)
-            t02.insert(i, t02a[i]);
-        assert(subsequence(t01, t02) == 4);
-
-        Sequence t11, t12;
-        ItemType t11a[] = { 1, 2, 2, 3, 2, 3, 4, 5 };
-        ItemType t12a[] = { 2, 3, 4 };
-        for (int i = 0; i < 8; i++)
-            t11.insert(i, t11a[i]);
-        for (int i = 0; i < 3; i++)
-            t12.insert(i, t12a[i]);
-        assert(subsequence(t11, t12) == 4);
-
-        Sequence t21, t22;
-        ItemType t21a[] = { 1, 2, 2, 3, 5 };
-        ItemType t22a[] = { 2, 3, 4, 5 };
-        for (int i = 0; i < 5; i++)
-            t21.insert(i, t21a[i]);
-        for (int i = 0; i < 4; i++)
-            t22.insert(i, t22a[i]);
-        assert(subsequence(t21, t22) == -1);
-
-        Sequence t31, t32;
-        ItemType t31a[] = { 1, 2, 2, 3, 5 };
-        for (int i = 0; i < 5; i++)
-            t31.insert(i, t31a[i]);
-        assert(subsequence(t31, t32) == -1);
-
-        Sequence t41, t42;
-        ItemType t42a[] = { 2, 3, 4, 5 };
-        for (int i = 0; i < 4; i++)
-            t42.insert(i, t42a[i]);
-        assert(subsequence(t41, t42) == -1);
+        {
+            Sequence t1, t2;
+            ItemType t1a[] = { 1, 2, 2, 3, 2, 3, 4, 5 };
+            ItemType t2a[] = { 2, 3, 4, 5 };
+            for (int i = 0; i < 8; i++)
+                t1.insert(i, t1a[i]);
+            for (int i = 0; i < 4; i++)
+                t2.insert(i, t2a[i]);
+            assert(subsequence(t1, t2) == 4);
+        }
+        {
+            Sequence t1, t2;
+            ItemType t1a[] = { 1, 2, 2, 3, 2, 3, 4, 5 };
+            ItemType t2a[] = { 2, 3, 4 };
+            for (int i = 0; i < 8; i++)
+                t1.insert(i, t1a[i]);
+            for (int i = 0; i < 3; i++)
+                t2.insert(i, t2a[i]);
+            assert(subsequence(t1, t2) == 4);
+        }
+        {
+            Sequence t1, t2;
+            ItemType t1a[] = { 1, 2, 2, 3, 5 };
+            ItemType t2a[] = { 2, 3, 4, 5 };
+            for (int i = 0; i < 5; i++)
+                t1.insert(i, t1a[i]);
+            for (int i = 0; i < 4; i++)
+                t2.insert(i, t2a[i]);
+            assert(subsequence(t1, t2) == -1);
+        }
+        {
+            Sequence t1, t2;
+            ItemType t1a[] = { 1, 2, 2, 3, 5 };
+            for (int i = 0; i < 5; i++)
+                t1.insert(i, t1a[i]);
+            assert(subsequence(t1, t2) == -1);
+        }
+        {
+            Sequence t1, t2;
+            ItemType t2a[] = { 2, 3, 4, 5 };
+            for (int i = 0; i < 4; i++)
+                t2.insert(i, t2a[i]);
+            assert(subsequence(t1, t2) == -1);
+        }
+        {
+            // Aliasing
+            Sequence t1;
+            ItemType t1a[] = { 1, 2, 3, 4, 5 };
+            for (int i = 0; i < 4; i++)
+                t1.insert(i, t1a[i]);
+            assert(subsequence(t1, t1) == 0);
+        }
     }
     // interleave
     {
-        Sequence t01, t02, t03;
-        for (int i = 0; i < 5; i++)
         {
-            t01.insert(2 * i);
-            t02.insert(2 * i + 1);
-            t03.insert(-1);
+            Sequence t1, t2, t3;
+            for (int i = 0; i < 5; i++)
+            {
+                t1.insert(2 * i);
+                t2.insert(2 * i + 1);
+                t3.insert(-1);
+            }
+            interleave(t1, t2, t3);
+            assert(t3.size() == 10);
+            for (int i = 0; i < 10; i++)
+                assert(t3.find(i) == i);
         }
-        interleave(t01, t02, t03);
-        assert(t03.size() == 10);
-        for (int i = 0; i < 10; i++)
-            assert(t03.find(i) == i);
-
-        Sequence t11, t12, t13;
-        ItemType t11a[] = { 1, 2, 3, 4, 5 };
-        ItemType t12a[] = { 6, 7, 8 };
-        ItemType t13a[] = { 1, 6, 2, 7, 3, 8, 4, 5 };
-        for (ItemType elem : t11a)
-            t11.insert(elem);
-        for (ItemType elem : t12a)
-            t12.insert(elem);
-        interleave(t11, t12, t13);
-        assert(t13.size() == 8);
-        int i1 = 0;
-        for (ItemType elem : t13a)
         {
-            ItemType temp;
-            t13.get(i1, temp);
-            assert(temp == elem);
-            i1++;
+            Sequence t1, t2, t3;
+            ItemType t1a[] = { 1, 2, 3, 4, 5 };
+            ItemType t2a[] = { 6, 7, 8 };
+            ItemType t3a[] = { 1, 6, 2, 7, 3, 8, 4, 5 };
+            for (ItemType elem : t1a)
+                t1.insert(elem);
+            for (ItemType elem : t2a)
+                t2.insert(elem);
+            interleave(t1, t2, t3);
+            assert(t3.size() == 8);
+            int i = 0;
+            for (ItemType elem : t3a)
+            {
+                ItemType temp;
+                t3.get(i, temp);
+                assert(temp == elem);
+                i++;
+            }
         }
-
-        Sequence t21, t22, t23;
-        ItemType t21a[] = { 6, 7, 8 };
-        ItemType t22a[] = { 1, 2, 3, 4, 5 };
-        ItemType t23a[] = { 6, 1, 7, 2, 8, 3, 4, 5 };
-        for (ItemType elem : t21a)
-            t21.insert(elem);
-        for (ItemType elem : t22a)
-            t22.insert(elem);
-        interleave(t21, t22, t23);
-        assert(t23.size() == 8);
-        int i2 = 0;
-        for (ItemType elem : t23a)
         {
-            ItemType temp;
-            t23.get(i2, temp);
-            assert(temp == elem);
-            i2++;
+            Sequence t1, t2, t3;
+            ItemType t1a[] = { 6, 7, 8 };
+            ItemType t2a[] = { 1, 2, 3, 4, 5 };
+            ItemType t3a[] = { 6, 1, 7, 2, 8, 3, 4, 5 };
+            for (ItemType elem : t1a)
+                t1.insert(elem);
+            for (ItemType elem : t2a)
+                t2.insert(elem);
+            interleave(t1, t2, t3);
+            assert(t3.size() == 8);
+            int i = 0;
+            for (ItemType elem : t3a)
+            {
+                ItemType temp;
+                t3.get(i, temp);
+                assert(temp == elem);
+                i++;
+            }
         }
-
-        Sequence t31, t32, t33;
-        ItemType t31a[] = { 1, 2, 3, 4, 5 };
-        for (ItemType elem : t31a)
-            t31.insert(elem);
-        interleave(t31, t32, t33);
-        assert(t33.size() == 5);
-        int i3 = 0;
-        for (ItemType elem : t31a)
         {
-            ItemType temp;
-            t33.get(i3, temp);
-            assert(temp == elem);
-            i3++;
+            Sequence t1, t2, t3;
+            ItemType t1a[] = { 1, 2, 3, 4, 5 };
+            for (ItemType elem : t1a)
+                t1.insert(elem);
+            interleave(t1, t2, t3);
+            assert(t3.size() == 5);
+            int i = 0;
+            for (ItemType elem : t1a)
+            {
+                ItemType temp;
+                t3.get(i, temp);
+                assert(temp == elem);
+                i++;
+            }
         }
-
-        Sequence t41, t42, t43;
-        ItemType t42a[] = { 1, 2, 3, 4, 5 };
-        for (ItemType elem : t42a)
-            t42.insert(elem);
-        interleave(t41, t42, t43);
-        assert(t33.size() == 5);
-        int i4 = 0;
-        for (ItemType elem : t42a)
         {
-            ItemType temp;
-            t43.get(i4, temp);
-            assert(temp == elem);
-            i4++;
+            Sequence t1, t2, t3;
+            ItemType t2a[] = { 1, 2, 3, 4, 5 };
+            for (ItemType elem : t2a)
+                t2.insert(elem);
+            interleave(t1, t2, t3);
+            assert(t3.size() == 5);
+            int i = 0;
+            for (ItemType elem : t2a)
+            {
+                ItemType temp;
+                t3.get(i, temp);
+                assert(temp == elem);
+                i++;
+            }
         }
-
-        Sequence t51, t52, t53;
-        interleave(t51, t52, t53);
-        assert(t53.size() == 0);
+        {
+            Sequence t1, t2, t3;
+            interleave(t1, t2, t3);
+            assert(t3.size() == 0);
+        }
+        {
+            // Aliasing
+            Sequence t1, t2;
+            ItemType t1a[] = { 6, 7, 8 };
+            ItemType t2a[] = { 1, 2, 3, 4, 5 };
+            ItemType t3a[] = { 6, 1, 7, 2, 8, 3, 4, 5 };
+            for (ItemType elem : t1a)
+                t1.insert(elem);
+            for (ItemType elem : t2a)
+                t2.insert(elem);
+            interleave(t1, t2, t1);
+            int i = 0;
+            for (ItemType elem : t3a)
+            {
+                ItemType temp;
+                t1.get(i, temp);
+                assert(temp == elem);
+                i++;
+            }
+        }
+        {
+            // Aliasing
+            Sequence t1, t2;
+            ItemType t1a[] = { 6, 7, 8 };
+            ItemType t2a[] = { 1, 2, 3, 4, 5 };
+            ItemType t3a[] = { 6, 1, 7, 2, 8, 3, 4, 5 };
+            for (ItemType elem : t1a)
+                t1.insert(elem);
+            for (ItemType elem : t2a)
+                t2.insert(elem);
+            interleave(t1, t2, t2);
+            int i = 0;
+            for (ItemType elem : t3a)
+            {
+                ItemType temp;
+                t2.get(i, temp);
+                assert(temp == elem);
+                i++;
+            }
+        }
     }
     std::cout << "           ',\\n        .-\`-,\\\\__\\n          .\\"\`   \`,\\n        .'_.  ._  \`;.\\n    __ / \`      \`  \`.\\\\ .--.\\n   /--,| 0)   0)     )\`_.-,)\\n  |    ;.-----.__ _-');   /\\n   '--./         \`.\`/  \`\\"\`\\n      :   '\`      |.\\n      | \\     /  //\\n       \\\\ '---'  /'\\n        \`------' \\\\\\n         _/       \`--..." << std::endl;
 }`
