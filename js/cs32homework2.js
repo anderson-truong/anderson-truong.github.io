@@ -9,4 +9,30 @@ document.querySelector("#copyClipboard").onclick = function(){
     }, 3000);
 }
 
-output.textContent = ``
+output.textContent = `#include <string>
+#include <cassert>
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    string cases[56] = {
+		"", "()", "(())", ")(", "))((", 
+		"(T", "T)", "((T|F)", "(T|F))",
+		")T(", ")F(", "))T((", "))F((",
+		"TT", "TF", "FT", "FF", "TTT", "TTF", "TFT", "FTT", "TFF", "FFT", "FTF", "FFF",
+		"T&&T", "T&|F", "T|&F", "T!&F", "T!|F", "T!!F",
+		"&", "&T", "&F", "|", "|T", "|F", "T&", "F&", "T|", "F|",
+		"(&T&T)", "(|T&T)", "(T&T!)", "(T&T&)", "(T&T|)",
+		"(&T)", "(&F)", "(|T)", "(|F)",
+		"T!T", "T!F", "F!T", "F!F",
+		"T!", "F!"
+	};
+    for (string c : cases)
+	{
+		cout << "Case: " << c << endl;
+		assert(evaluate(c, postfix, result) == 1);
+		assert(postfix == "");
+		assert(result == false);
+	}
+}`
