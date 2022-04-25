@@ -28,11 +28,12 @@ int main()
 		"T!T", "T!F", "F!T", "F!F",
 		"T!", "F!"
 	};
+	string postfix = "";
+	bool result = false;
     for (string c : cases)
 	{
 		cout << "Case: " << c << endl;
 		assert(evaluate(c, postfix, result) == 1);
-		assert(postfix == "");
 		assert(result == false);
 	}
 }`
