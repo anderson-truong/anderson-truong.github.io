@@ -9,6 +9,21 @@ document.querySelector("#copyClipboard").onclick = function(){
     }, 3000);
 }
 
+let maze = `XXXXXXXXXX
+X........X
+X........X
+X........X
+X........X
+X........X
+X........X
+X........X
+X........X
+XXXXXXXXXX`
+
+let matrix = maze.split('\n');
+console.log(matrix);
+let carray = "";
+
 output.textContent = `#include <string>
 #include <cassert>
 #include <iostream>
