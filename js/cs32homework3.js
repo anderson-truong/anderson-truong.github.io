@@ -202,6 +202,53 @@ output.textContent += `    for (int i = 0; i < 5; i++)
 }
 output.textContent += '    }\n';
 
+// position of least
+output.textContent += '    //Test positionOfLeast\n    {\n';
+{
+let reverseOrdered = `    std::string reverseOrdered[${len}] { `;
+for (let i = len - 1; i >= 0; i--) reverseOrdered += `"${i}", `;
+reverseOrdered = reverseOrdered.slice(0, -2);
+reverseOrdered += ' };\n';
+output.textContent += reverseOrdered;
 
+let ordered = `    std::string ordered[${len}] { `;
+for (let i = 0; i < len; i++) ordered += `"${i}", `;
+ordered = ordered.slice(0, -2);
+ordered += ' };\n';
+output.textContent += ordered;
+
+let repeated = `    std::string repeated[${len}] { `;
+for (let i = 0; i < len - 1; i++) repeated += `"${i}", `;
+repeated += `"0"`;
+repeated += ' };\n';
+output.textContent += repeated;
+
+let allLeast = `    std::string allLeast[${len}] { `;
+for (let i = 0; i < len; i++) allLeast += `"0", `;
+allLeast = allLeast.slice(0, -2);
+allLeast += ' };\n';
+output.textContent += allLeast;
+
+output.textContent += `    assert(positionOfLeast(reverseOrdered, 0) == -1);
+    assert(positionOfLeast(reverseOrdered, ${len}) == ${len - 1});
+    assert(positionOfLeast(ordered, ${len}) == 0);
+    assert(positionOfLeast(repeated, ${len}) == 0);
+    assert(positionOfLeast(allLeast, ${len}) == 0);
+`
+}
+output.textContent += '    }\n';
+
+// has
+// 0 occurrences
+// 1 occurrence
+// 0 1 2 3 (0 1 2), (0, 1, 3), (0, 2, 3), (1, 2, 3), (0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3), (0), (1), (2), (3)
+// Not (3, 2, 1), (3, 2, 0), (3, 1, 0), (2, 1, 0), (3, 2), (3, 1), (3, 0), (2, 1), (2, 0)
+
+// 2 occurrences
+// Ex: 
+// pattern mostly matches but last char of pattern doesnt match
+// pattern mostly matches but is cut off at the end of a1
+// a2 empty
+// n1 < n2
 
 output.textContent += '}\n'
