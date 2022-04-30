@@ -11,10 +11,11 @@ document.querySelector("#copyClipboard").onclick = function(){
 
 output.textContent = `#include <string>
 #include <cassert>
-// True if string has non-zero length, false if length == 0
+
+// True if string has zero length, false otherwise
 bool somePredicate(std::string s)
 {
-	return s.length() != 0 ? true : false;
+	return s.length() == 0 ? true : false;
 }
 
 // Your functions here
@@ -24,36 +25,45 @@ int main()
 `
 
 var len = 5;
-var allFalse_True = `std::string allFalse_True[${len}] { `
-var allFalse_False = `std::string allFalse_False[${len}][${len}] { `
-for (let i = 0; i < len; i++) allFalse_True += '"",';
+
+// All false
+output.textContent += '    //Test allFalse\n    {\n';
+{
+var allFalse_True = `    std::string allFalse_True[${len}] { `
+for (let i = 0; i < len; i++) allFalse_True += '"o",';
+allFalse_True = allFalse_True.slice(0, -1);
+allFalse_True += ' };\n';
+output.textContent += allFalse_True;
+output.textContent += `    assert(allFalse(allFalse_True, ${len}));\n`;
+
+var allFalse_False = `    std::string allFalse_False[${len}][${len}] { `
 for (let i = 0; i < len; i++)
 {
     allFalse_False += '{ ';
     for (let j = 0; j < len; j++)
     {
         if (i == j)
-            allFalse_False += '"o", ';
+            allFalse_False += '"", ';
         else
-            allFalse_False += '"", '
+            allFalse_False += '"o", '
     }
     allFalse_False = allFalse_False.slice(0, -1);
-    allFalse_False += '}, '
+    allFalse_False += ' }, '
 }
 allFalse_False = allFalse_False.slice(0, -1);
 allFalse_False += ' };\n'
-
-allFalse_True = allFalse_True.slice(0, -1);
-allFalse_True += ' };\n'
-output.textContent += allFalse_True;
 output.textContent += allFalse_False;
 
-output.textContent += `assert(allFalse(allFalse_True, ${len}));
-for (int i = 0; i < ${len}; i++)
-    assert(!allFalse(allFalse_False[i], ${len}));
-`;
+output.textContent += `    for (int i = 0; i < ${len}; i++)
+        assert(!allFalse(allFalse_False[i], ${len}));
+`;    
+}
+output.textContent += '    }\n';
 
-var countFalseStrings = `std::string countFalseTest[${2*(len + 1)}][${len}] { `;
+// Count false
+output.textContent += '    //Test countFalse\n    {\n';
+{
+var countFalseStrings = `    std::string countFalseTest[${2*(len + 1)}][${len}] { `;
 for (let i = 0; i < len + 1; i++)
 {
     countFalseStrings += '{ ';
@@ -69,27 +79,129 @@ for (let i = 0; i < len + 1; i++)
             countFalseStrings += `"", `
             
     }
-    countFalseStrings = countFalseStrings.slice(0, -1);
-    countFalseStrings += '}, ';
+    countFalseStrings = countFalseStrings.slice(0, -2);
+    countFalseStrings += ' }, ';
 
-    countFalseStrings += '{ ';
-    falses = len;
+    let set = '}, ';
+    falses = i;
     for (let j = 0; j < len; j++)
     {
         if (falses > 0)
         {
-            countFalseStrings += `"", `
+            set = ', "o"' + set;
             falses--;
         }
         else
-            countFalseStrings += '"o", '      
+            set = `, ""` + set;
+            
     }
-    countFalseStrings = countFalseStrings.slice(0, -1);
-    countFalseStrings += '}, ';
+    set = set.slice(1, set.length);
+    set = '{' + set;
+    countFalseStrings += set;
 }
-countFalseStrings = countFalseStrings.slice(0, -1);
-countFalseStrings += '};\n';
+countFalseStrings = countFalseStrings.slice(0, -2);
+countFalseStrings += ' };\n';
 
 output.textContent += countFalseStrings;
 
-output.textContent += '}'
+output.textContent += `    for (int i = 0; i < ${len + 1}; i++)
+    {
+        assert(countFalse(countFalseTest[2 * i], ${len}) == i);
+        assert(countFalse(countFalseTest[2 * i + 1], ${len}) == i);
+    }\n`
+}
+output.textContent += '    }\n';
+
+// First false
+output.textContent += '    //Test firstFalse\n    {\n';
+{
+let counter;
+let firstFalseLeft = `    std::string firstFalseLeft[${len}][${len}] { `;
+for (let i = 1; i <= len; i++)
+{
+    counter = i;
+    firstFalseLeft += '{ ';
+    for (let j = 0; j < len; j++)
+    {
+        if (counter > 0)
+        {
+            firstFalseLeft += '"o", ';
+            counter--;
+        }
+        else
+        {
+            firstFalseLeft += '"", ';
+        }
+    }
+    firstFalseLeft = firstFalseLeft.slice(0, -2);
+    firstFalseLeft += ' }, ';
+}
+firstFalseLeft = firstFalseLeft.slice(0, -2);
+firstFalseLeft += ' };\n';
+output.textContent += firstFalseLeft;
+
+let firstFalseRight = ` };\n`;
+for (let i = 1; i <= len; i++)
+{
+    counter = i;
+    firstFalseRight = ' }' + firstFalseRight;
+    for (let j = 0; j < len; j++)
+    {
+        if (counter > 0)
+        {
+            firstFalseRight = ', "o"' + firstFalseRight;
+            counter--;
+        }
+        else
+        {
+            firstFalseRight = ', ""' + firstFalseRight;
+        }
+    }
+    firstFalseRight = firstFalseRight.slice(1, firstFalseRight.length);
+    firstFalseRight = ', {' + firstFalseRight;
+}
+firstFalseRight = firstFalseRight.slice(2, firstFalseRight.length);
+firstFalseRight = `    std::string firstFalseRight[${len}][${len}] { ` + firstFalseRight;
+output.textContent += firstFalseRight;
+
+let firstFalseShift = `    std::string firstFalseShift[${len}][${len}] { `;
+for (let i = 0; i < len; i++)
+{
+    firstFalseShift += '{ ';
+    for (let j = 0; j < len; j++)
+    {
+        if (i == j)
+        firstFalseShift += '"o", ';
+        else
+        firstFalseShift += '"", ';
+    }
+    firstFalseShift = firstFalseShift.slice(0, -2);
+    firstFalseShift += ' }, ';
+}
+firstFalseShift = firstFalseShift.slice(0, -2);
+firstFalseShift += ' };\n';
+output.textContent += firstFalseShift;
+
+let firstfalseEmpty = `    std::string firstfalseEmpty[${len}] { `;
+for (let i = 0; i < len; i++)
+{
+    firstfalseEmpty += '"", ';
+}
+firstfalseEmpty = firstfalseEmpty.slice(0, -2);
+firstfalseEmpty += ' };\n';
+output.textContent += firstfalseEmpty;
+
+// Tester
+output.textContent += `    for (int i = 0; i < 5; i++)
+    {
+        assert(firstFalse(firstFalseLeft[i], 5) == 0);
+        assert(firstFalse(firstFalseRight[i], 5) == i);
+        assert(firstFalse(firstFalseShift[i], 5) == i);
+    }
+    assert(firstfalse(firstFalseEmpty[i], 5) == -1);\n`
+}
+output.textContent += '    }\n';
+
+
+
+output.textContent += '}\n'
