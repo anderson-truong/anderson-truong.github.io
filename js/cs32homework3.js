@@ -9,6 +9,31 @@ document.querySelector("#copyClipboard").onclick = function(){
     }, 3000);
 }
 
+function singleString(name, range)
+{
+    let test = `    std::string ${name}[${range.length}] { `;
+    for (let i of range) test += `"${i}", `
+    test = test.slice(0, -2);
+    test += ' };\n'
+    return test;
+}
+
+function multiString(name, range)
+{
+    let test = `    std::string ${name}[${range.length}][${range[0].length}] { `;
+    for (let i of range)
+    {
+        test += '{ ';
+        for (let j of i)
+            test += `"${j}", `
+        test = test.slice(0, -2);
+        test += ' }, ';
+    }
+    test = test.slice(0, -2);
+    test += ' };\n'
+    return test;
+}
+
 output.textContent = `#include <string>
 #include <cassert>
 
@@ -182,7 +207,7 @@ firstFalseShift = firstFalseShift.slice(0, -2);
 firstFalseShift += ' };\n';
 output.textContent += firstFalseShift;
 
-let firstfalseEmpty = `    std::string firstfalseEmpty[${len}] { `;
+let firstfalseEmpty = `    std::string firstFalseEmpty[${len}] { `;
 for (let i = 0; i < len; i++)
 {
     firstfalseEmpty += '"", ';
@@ -198,7 +223,7 @@ output.textContent += `    for (int i = 0; i < 5; i++)
         assert(firstFalse(firstFalseRight[i], 5) == i);
         assert(firstFalse(firstFalseShift[i], 5) == i);
     }
-    assert(firstfalse(firstFalseEmpty[i], 5) == -1);\n`
+    assert(firstFalse(firstFalseEmpty, 5) == -1);\n`
 }
 output.textContent += '    }\n';
 
@@ -240,15 +265,73 @@ output.textContent += '    }\n';
 
 // has
 // 0 occurrences
+// 4
 // 1 occurrence
 // 0 1 2 3 (0 1 2), (0, 1, 3), (0, 2, 3), (1, 2, 3), (0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3), (0), (1), (2), (3)
 // Not (3, 2, 1), (3, 2, 0), (3, 1, 0), (2, 1, 0), (3, 2), (3, 1), (3, 0), (2, 1), (2, 0)
 
 // 2 occurrences
-// Ex: 
+// 0 1 2 2 3
+// 0 1 2, 1 2 3, 0 1, 1 2, 2 3, 2
+
 // pattern mostly matches but last char of pattern doesnt match
+// 0 1 2 3 4, 0 1 2 4, 1 2 4, 2 4, 4
+// first char of pattern doesnt match
+// 4 0 1 2 3, 4 0 1 2, 4 0 1, 4 0, 4
 // pattern mostly matches but is cut off at the end of a1
-// a2 empty
+// 0 1 2 3 4, 1 2 3 4, 2 3 4, 3 4, 4
+// a2 empty, n = 0
 // n1 < n2
 
+// has
+output.textContent += '    //Test has\n    {\n';
+{
+let test1 = singleString('test1_a1', [0, 1, 2, 3]);
+output.textContent += test1;
+let test2 = singleString('test2_a1', [0, 1, 2, 2, 3]);
+output.textContent += test2;
+
+let valid1 = [[0, 1, 2], [0, 1, 3], [0, 2, 3], [1, 2, 3]];
+let valid2 = [[0, 1], [0, 2], [0, 3], [1, 2], [1, 3], [2, 3]];
+let valid3 = [[0], [1], [2], [3]];
+
+output.textContent += multiString(`valid1`, valid1);
+output.textContent += multiString(`valid2`, valid2);
+output.textContent += multiString(`valid3`, valid3);
+
+output.textContent += `
+    for (int i = 0; i < 4; i++) { assert(has(test1_a1, 4, valid1[i], 3)); assert(has(test2_a1, 5, valid1[i], 3)); }
+    for (int i = 0; i < 6; i++) { assert(has(test1_a1, 4, valid2[i], 2)); assert(has(test2_a1, 5, valid2[i], 2)); }
+    for (int i = 0; i < 4; i++) { assert(has(test1_a1, 4, valid3[i], 1)); assert(has(test2_a1, 5, valid3[i], 1)); }
+    assert(has(test1_a1, 0, test1_a1, 0));
+    assert(has(test1_a1, 4, test1_a1, 0));
+    assert(has(test1_a1, 4, test1_a1, 4));
+    assert(has(test1_a1, 0, test1_a1, 4) == false);
+    assert(has(test1_a1, 4, test2_a1, 5) == false);
+
+`
+
+let invalid1 = [[0, 1, 2, 3, 4], [4, 0, 1, 2, 3]];
+let invalid2 = [[0, 1, 2, 4], [4, 0, 1, 2], [1, 2, 3, 4]];
+let invalid3 = [[1, 2, 4], [4, 0, 1], [2, 3, 4]];
+let invalid4 = [[2, 4], [4, 0], [3, 4]];
+let invalid5 = [4];
+output.textContent += multiString('invalid1', invalid1);
+output.textContent += multiString('invalid2', invalid2);
+output.textContent += multiString('invalid3', invalid3);
+output.textContent += multiString('invalid4', invalid4);
+output.textContent += singleString('invalid5', invalid5);
+
+output.textContent += `
+    for (int i = 0; i < 2; i++) assert(has(test1_a1, 4, invalid1[i], 5) == false);
+    for (int i = 0; i < 3; i++) assert(has(test1_a1, 4, invalid2[i], 4) == false);
+    for (int i = 0; i < 3; i++) assert(has(test1_a1, 4, invalid3[i], 3) == false);
+    for (int i = 0; i < 3; i++) assert(has(test1_a1, 4, invalid4[i], 2) == false);
+    assert(has(test1_a1, 4, invalid5, 1) == false);
+`
+
+}
+output.textContent += '    }\n';
+
+output.textContent += `    std::cout << "           ',\\n        .-\`-,\\\\__\\n          .\\"\`   \`,\\n        .'_.  ._  \`;.\\n    __ / \`      \`  \`.\\\\ .--.\\n   /--,| 0)   0)     )\`_.-,)\\n  |    ;.-----.__ _-');   /\\n   '--./         \`.\`/  \`\\"\`\\n      :   '\`      |.\\n      | \\     /  //\\n       \\\\ '---'  /'\\n        \`------' \\\\\\n         _/       \`--..." << std::endl;\n`
 output.textContent += '}\n'
